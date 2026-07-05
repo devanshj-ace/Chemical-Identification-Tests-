@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chemical Tests — JEE Master Reference</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f1117;--card:#181b23;--card2:#1e2130;--border:#2a2f42;--border2:#353a52;--text:#e2e8f0;--muted:#8892a4;--dim:#5a6277;--blue:#5ba4f5;--blue-glow:rgba(91,164,245,0.12);--cyan:#4ecdc4;--cyan-glow:rgba(78,205,196,0.12);--purple:#b57bee;--purple-glow:rgba(181,123,238,0.12);--green:#6bcb77;--green-glow:rgba(107,203,119,0.12);--amber:#f4c842;--amber-glow:rgba(244,200,66,0.12);--red:#ff6b6b;--red-glow:rgba(255,107,107,0.12);--pink:#f06292;--mono:'JetBrains Mono',monospace;--sans:'Inter',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13.5px;line-height:1.6;min-height:100vh;padding:0 0 60px}
+.topnav{position:sticky;top:0;z-index:100;background:rgba(15,17,23,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 20px;display:flex;align-items:center;gap:5px;height:50px;overflow-x:auto}
+.topnav .logo{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.1em;margin-right:14px;white-space:nowrap;flex-shrink:0}
+.nav-btn{flex-shrink:0;padding:5px 13px;border-radius:6px;border:1px solid var(--border2);background:transparent;color:var(--muted);font-family:var(--sans);font-size:12px;cursor:pointer;transition:all .2s;white-space:nowrap}
+.nav-btn:hover{border-color:var(--blue);color:var(--blue)}
+.nav-btn.active{background:var(--blue-glow);border-color:var(--blue);color:var(--blue);font-weight:600}
+.tab-content{display:none !important;visibility:hidden;height:0;overflow:hidden;padding:0}.tab-content.active{display:block !important;visibility:visible;height:auto;overflow:visible;padding:24px 20px}
+.tab-content.active{display:block}
+.page-header{text-align:center;margin-bottom:24px;padding-bottom:18px;border-bottom:1px solid var(--border)}
+.subject-tag{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);background:var(--card2);border:1px solid var(--border2);padding:3px 10px;border-radius:4px;margin-bottom:10px}
+.page-header h1{font-size:21px;font-weight:700;letter-spacing:-.02em}
+.page-header h1 span{color:var(--blue)}
+.page-header .subtitle{font-size:12px;color:var(--muted);margin-top:4px;font-family:var(--mono)}
+.section-label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:26px 0 11px;display:flex;align-items:center;gap:8px}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:960px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:17px 19px;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;border-radius:12px 12px 0 0}
+.card.accent-blue::before{background:var(--blue)}.card.accent-cyan::before{background:var(--cyan)}.card.accent-purple::before{background:var(--purple)}.card.accent-green::before{background:var(--green)}.card.accent-amber::before{background:var(--amber)}.card.accent-red::before{background:var(--red)}.card.accent-pink::before{background:var(--pink)}
+.card-title{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;margin-bottom:13px}
+.dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.dot-blue{background:var(--blue);box-shadow:0 0 6px var(--blue)}.dot-cyan{background:var(--cyan);box-shadow:0 0 6px var(--cyan)}.dot-purple{background:var(--purple);box-shadow:0 0 6px var(--purple)}.dot-green{background:var(--green);box-shadow:0 0 6px var(--green)}.dot-amber{background:var(--amber);box-shadow:0 0 6px var(--amber)}.dot-red{background:var(--red);box-shadow:0 0 6px var(--red)}.dot-pink{background:var(--pink);box-shadow:0 0 6px var(--pink)}
+.rxn{background:#0d1018;border:1px solid var(--border2);border-radius:7px;padding:9px 13px;font-family:var(--mono);font-size:11.5px;color:var(--muted);margin:7px 0;line-height:1.7}
+.rxn .r{color:#ff9580}.rxn .p{color:var(--cyan)}.rxn .arr{color:var(--amber);margin:0 3px}.rxn .cl{color:var(--purple);font-size:10.5px}
+.blist{list-style:none;display:flex;flex-direction:column;gap:6px}
+.blist li{display:flex;align-items:baseline;gap:7px;font-size:12.5px;color:var(--muted);line-height:1.5}
+.blist li::before{content:'•';font-size:10px;flex-shrink:0}
+.blist li b,.blist li strong{color:var(--text);font-weight:600}
+.hl-blue{color:var(--blue);font-weight:600}.hl-cyan{color:var(--cyan);font-weight:600}.hl-green{color:var(--green);font-weight:600}.hl-amber{color:var(--amber);font-weight:600}.hl-purple{color:var(--purple);font-weight:600}.hl-red{color:var(--red);font-weight:600}.hl-pink{color:var(--pink);font-weight:600}
+.trap-box{background:rgba(255,107,107,.07);border:1px solid rgba(255,107,107,.28);border-radius:7px;padding:9px 12px;margin-top:9px;font-size:12px;color:#ffaaaa;display:flex;gap:7px;align-items:flex-start;line-height:1.5}
+.note-box{border-radius:7px;padding:9px 12px;margin-top:9px;font-size:12px;line-height:1.5;display:flex;gap:7px;align-items:flex-start}
+.note-box.amber{background:var(--amber-glow);border:1px solid rgba(244,200,66,.25);color:#f4e08a}
+.note-box.cyan{background:var(--cyan-glow);border:1px solid rgba(78,205,196,.25);color:#8aeee8}
+.note-box.green{background:var(--green-glow);border:1px solid rgba(107,203,119,.25);color:#9cdba4}
+.note-box.purple{background:var(--purple-glow);border:1px solid rgba(181,123,238,.25);color:#c9a8f0}
+.note-box.blue{background:var(--blue-glow);border:1px solid rgba(91,164,245,.25);color:#a8cef5}
+.note-box.pink{background:rgba(240,98,146,.08);border:1px solid rgba(240,98,146,.25);color:#f9b0ca}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;padding:1px 6px;border-radius:3px;margin-left:5px}
+.tag-jee{background:rgba(91,164,245,.15);color:var(--blue);border:1px solid rgba(91,164,245,.3)}
+.tag-star{background:rgba(244,200,66,.15);color:var(--amber);border:1px solid rgba(244,200,66,.3)}
+.must-box{background:rgba(255,107,107,.07);border:1px solid rgba(255,107,107,.3);border-radius:9px;padding:13px 15px;margin-top:10px}
+.must-box .must-hdr{font-size:11px;font-weight:700;color:var(--red);font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.step-list{display:flex;flex-direction:column;gap:7px;margin-top:8px}
+.step{display:flex;gap:9px;align-items:flex-start;font-size:12.5px}
+.snum{flex-shrink:0;width:19px;height:19px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;font-family:var(--mono)}
+.snum.pink{background:rgba(240,98,146,.1);color:var(--pink);border:1px solid rgba(240,98,146,.3)}
+.snum.blue{background:var(--blue-glow);color:var(--blue);border:1px solid rgba(91,164,245,.3)}
+.stext{color:var(--muted);line-height:1.5;padding-top:1px}.stext b{color:var(--text)}
+.vm-row{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:10px}
+@media(max-width:700px){.vm-row{grid-template-columns:1fr}}
+.vm-box{background:var(--card2);border:1px solid var(--border2);border-radius:8px;padding:10px 12px;font-size:12px}
+.vm-lbl{font-family:var(--mono);font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
+.vm-col{font-weight:600;font-size:13px;font-family:var(--mono)}
+.vm-sub{color:var(--muted);font-size:11.5px;margin-top:3px}
+.tbl{width:100%;border-collapse:collapse;font-size:11.5px}
+.tbl th{background:var(--card2);color:var(--muted);padding:7px 9px;border:1px solid var(--border2);font-weight:600;font-size:10.5px;text-align:center}
+.tbl th:first-child{text-align:left}
+.tbl td{padding:6px 9px;border:1px solid var(--border);color:var(--muted);text-align:center;vertical-align:top;line-height:1.4}
+.tbl td:first-child{text-align:left;color:var(--text);font-weight:500;font-family:var(--mono);font-size:11px;background:rgba(255,255,255,.015)}
+.tbl tr:hover td{background:rgba(255,255,255,.02)}
+.pos{color:var(--green);font-weight:600}.neg{color:var(--red)}.cond{color:var(--amber);font-size:10.5px}
+/* QUIZ / CARD STYLES */
+.qctrl{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:20px;padding:13px 16px;background:var(--card);border:1px solid var(--border);border-radius:10px}
+.qctrl label{font-size:12px;color:var(--muted);font-family:var(--mono)}
+.qsel{background:var(--card2);border:1px solid var(--border2);color:var(--text);font-family:var(--mono);font-size:12px;padding:5px 9px;border-radius:6px;cursor:pointer;outline:none}
+.qsel:focus{border-color:var(--blue)}
+.qbtn{padding:6px 16px;border-radius:7px;border:none;cursor:pointer;font-family:var(--sans);font-size:12.5px;font-weight:600;transition:all .18s}
+.qbtn.primary{background:var(--blue);color:#0f1117}.qbtn.primary:hover{background:#7bb8f8}
+.qbtn.secondary{background:var(--card2);color:var(--muted);border:1px solid var(--border2)}.qbtn.secondary:hover{border-color:var(--blue);color:var(--blue)}
+.qbtn.green{background:var(--green);color:#0f1117}.qbtn.green:hover{background:#8ed894}
+.qbtn.red{background:var(--red);color:#0f1117}.qbtn.red:hover{background:#ff9090}
+.qbtn.amber{background:var(--amber);color:#0f1117}
+.qbtn.sm{padding:4px 11px;font-size:11.5px}
+.prog-wrap{height:4px;background:var(--border);border-radius:2px;margin-bottom:18px;overflow:hidden}
+.prog-bar{height:100%;background:var(--blue);border-radius:2px;transition:width .4s ease}
+.score-bar{display:flex;gap:14px;margin-bottom:16px;font-family:var(--mono);font-size:12px;flex-wrap:wrap;align-items:center}
+.si{display:flex;align-items:center;gap:5px}
+.sdot{width:8px;height:8px;border-radius:50%}
+/* FLASHCARD */
+.fc-wrap{perspective:1000px;margin:0 auto 18px;max-width:660px;height:300px;cursor:pointer;user-select:none}
+.fc{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+.fc.flipped{transform:rotateY(180deg)}
+.cface{position:absolute;inset:0;border-radius:14px;backface-visibility:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:28px;text-align:center}
+.cfront{background:var(--card);border:1px solid var(--border2)}
+.cfront::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:14px 14px 0 0;background:var(--blue)}
+.cback{background:var(--card2);border:1px solid var(--border2);transform:rotateY(180deg)}
+.cback::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:14px 14px 0 0;background:var(--green)}
+.ctag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:12px}
+.cq{font-size:14.5px;font-weight:600;color:var(--text);line-height:1.5;margin-bottom:8px}
+.ca{font-size:13px;color:var(--text);line-height:1.6}
+.ca .hl{color:var(--cyan);font-weight:600}.ca .gl{color:var(--green);font-weight:600}.ca .rl{color:var(--red);font-weight:600}.ca .al{color:var(--amber);font-weight:600}
+.fhint{font-size:10px;color:var(--dim);margin-top:14px;font-family:var(--mono)}
+.cactions{display:flex;gap:9px;justify-content:center;margin-bottom:18px;flex-wrap:wrap}
+.btn-got{background:rgba(107,203,119,.15);color:var(--green);border:1px solid rgba(107,203,119,.4);padding:7px 20px;border-radius:8px;cursor:pointer;font-family:var(--sans);font-size:12.5px;font-weight:600;transition:all .18s}
+.btn-got:hover{background:rgba(107,203,119,.28)}
+.btn-again{background:rgba(255,107,107,.12);color:var(--red);border:1px solid rgba(255,107,107,.35);padding:7px 20px;border-radius:8px;cursor:pointer;font-family:var(--sans);font-size:12.5px;font-weight:600;transition:all .18s}
+.btn-again:hover{background:rgba(255,107,107,.22)}
+.btn-skip{background:var(--card2);color:var(--muted);border:1px solid var(--border2);padding:7px 16px;border-radius:8px;cursor:pointer;font-family:var(--sans);font-size:12.5px;transition:all .18s}
+.btn-skip:hover{color:var(--text)}
+/* MCQ */
+.mcq-wrap{max-width:680px;margin:0 auto}
+.mcq-qbox{background:var(--card);border:1px solid var(--border2);border-radius:12px;padding:20px 22px;margin-bottom:14px}
+.mcq-qtext{font-size:14px;font-weight:600;color:var(--text);line-height:1.5;margin-bottom:16px}
+.mcq-opts{display:flex;flex-direction:column;gap:7px}
+.mcq-opt{padding:9px 14px;border-radius:8px;border:1px solid var(--border2);background:var(--card2);cursor:pointer;font-size:13px;color:var(--muted);transition:all .18s;text-align:left;display:flex;gap:9px;align-items:flex-start;width:100%}
+.mcq-opt:hover:not([disabled]){border-color:var(--blue);color:var(--text)}
+.mcq-opt.correct{border-color:var(--green);background:rgba(107,203,119,.1);color:var(--green)}
+.mcq-opt.wrong{border-color:var(--red);background:rgba(255,107,107,.08);color:var(--red)}
+.oltr{flex-shrink:0;width:19px;height:19px;border-radius:50%;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;font-family:var(--mono);color:var(--dim)}
+.mcq-exp{background:rgba(107,203,119,.07);border:1px solid rgba(107,203,119,.2);border-radius:8px;padding:10px 13px;margin-top:10px;font-size:12.5px;color:#9cdba4;line-height:1.55;display:none}
+.mcq-exp.show{display:block}
+.mcq-exp.wrong-exp{background:rgba(255,107,107,.07);border-color:rgba(255,107,107,.2);color:#ffaaaa}
+.mcq-nav{display:flex;gap:9px;align-items:center;justify-content:center;margin-top:14px;flex-wrap:wrap}
+/* NUMERICAL */
+.num-wrap{max-width:660px;margin:0 auto}
+.num-qbox{background:var(--card);border:1px solid var(--border2);border-radius:12px;padding:20px 22px;margin-bottom:14px}
+.num-qtext{font-size:14px;font-weight:600;color:var(--text);line-height:1.5;margin-bottom:18px}
+.num-input-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.num-input{background:#0d1018;border:2px solid var(--border2);color:var(--text);font-family:var(--mono);font-size:16px;padding:10px 14px;border-radius:8px;width:160px;text-align:center;outline:none;transition:border-color .2s}
+.num-input:focus{border-color:var(--blue)}
+.num-input.correct-input{border-color:var(--green);background:rgba(107,203,119,.07)}
+.num-input.wrong-input{border-color:var(--red);background:rgba(255,107,107,.07)}
+.num-result{font-size:13px;padding:8px 14px;border-radius:7px;display:none}
+.num-result.show{display:block}
+.num-result.correct{background:rgba(107,203,119,.1);border:1px solid rgba(107,203,119,.3);color:var(--green)}
+.num-result.wrong{background:rgba(255,107,107,.08);border:1px solid rgba(255,107,107,.25);color:var(--red)}
+/* RESULTS */
+.results-screen{display:none;text-align:center;padding:36px 20px}
+.results-screen.show{display:block}
+.res-pct{font-size:54px;font-weight:700;font-family:var(--mono);margin:14px 0}
+.res-lbl{font-size:13px;color:var(--muted)}
+.res-breakdown{display:flex;gap:18px;justify-content:center;margin:18px 0;flex-wrap:wrap}
+.rb{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:13px 18px;min-width:90px}
+.rb-num{font-size:24px;font-weight:700;font-family:var(--mono)}
+.rb-lbl{font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:2px}
+/* EDITOR / CUSTOM */
+.editor-panel{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin-bottom:16px}
+.editor-panel h3{font-size:13px;font-weight:600;color:var(--text);margin-bottom:14px;display:flex;align-items:center;gap:7px}
+.form-group{display:flex;flex-direction:column;gap:5px;margin-bottom:13px}
+.form-label{font-size:11.5px;color:var(--muted);font-family:var(--mono);letter-spacing:.04em}
+.form-input,.form-textarea,.form-select{background:#0d1018;border:1px solid var(--border2);color:var(--text);font-family:var(--sans);font-size:13px;padding:8px 11px;border-radius:7px;outline:none;transition:border-color .2s;width:100%}
+.form-textarea{resize:vertical;min-height:70px;line-height:1.5}
+.form-input:focus,.form-textarea:focus,.form-select:focus{border-color:var(--blue)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:600px){.form-row{grid-template-columns:1fr}}
+.item-list{display:flex;flex-direction:column;gap:8px;margin-top:12px;max-height:340px;overflow-y:auto}
+.item-row{background:var(--card2);border:1px solid var(--border2);border-radius:8px;padding:10px 13px;display:flex;gap:10px;align-items:flex-start}
+.item-row-content{flex:1;min-width:0}
+.item-row-q{font-size:12.5px;color:var(--text);font-weight:500;margin-bottom:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.item-row-meta{font-size:11px;color:var(--dim);font-family:var(--mono)}
+.item-row-actions{display:flex;gap:6px;flex-shrink:0}
+.del-btn{padding:3px 9px;border-radius:5px;border:1px solid rgba(255,107,107,.3);background:rgba(255,107,107,.08);color:var(--red);font-size:11px;cursor:pointer;font-family:var(--mono);transition:all .15s}
+.del-btn:hover{background:rgba(255,107,107,.18)}
+.built-in-badge{font-size:10px;padding:1px 6px;background:rgba(91,164,245,.1);border:1px solid rgba(91,164,245,.25);color:var(--blue);border-radius:4px;font-family:var(--mono)}
+.custom-badge{font-size:10px;padding:1px 6px;background:rgba(107,203,119,.1);border:1px solid rgba(107,203,119,.25);color:var(--green);border-radius:4px;font-family:var(--mono)}
+.tabs-sub{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}
+.sub-tab{padding:5px 14px;border-radius:6px;border:1px solid var(--border2);background:transparent;color:var(--muted);font-family:var(--sans);font-size:12px;cursor:pointer;transition:all .2s}
+.sub-tab.active{background:rgba(181,123,238,.12);border-color:var(--purple);color:var(--purple);font-weight:600}
+.divider{height:1px;background:var(--border);margin:14px 0}
+.empty-state{text-align:center;padding:28px;color:var(--dim);font-family:var(--mono);font-size:12px}
+.count-badge{display:inline-flex;align-items:center;justify-content:center;min-width:18px;height:18px;padding:0 5px;border-radius:9px;font-size:10px;font-weight:700;font-family:var(--mono);background:var(--blue-glow);color:var(--blue);border:1px solid rgba(91,164,245,.3);margin-left:6px}
+.correct-ans-select{background:rgba(107,203,119,.07);border-color:rgba(107,203,119,.3)!important}
+.opt-row{display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:center;margin-bottom:8px}
+.opt-label{font-size:12px;font-family:var(--mono);color:var(--muted);width:22px}
+.radio-correct{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--muted);margin-top:4px;cursor:pointer}
+.radio-correct input{accent-color:var(--green)}
+.page-footer{text-align:center;padding:20px;border-top:1px solid var(--border);color:var(--dim);font-family:var(--mono);font-size:11px;letter-spacing:.06em;margin-top:20px}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <div class="logo">JEE CHEM</div>
+  <button class="nav-btn active" onclick="showTab('notes')">📋 Notes</button>
+  <button class="nav-btn" onclick="showTab('matrix')">📊 Matrix</button>
+  <button class="nav-btn" onclick="showTab('flashcards')">🃏 Flashcards</button>
+  <button class="nav-btn" onclick="showTab('mcq')">✏️ MCQ Quiz</button>
+  <button class="nav-btn" onclick="showTab('numerical')">🔢 Numerical</button>
+  <button class="nav-btn" onclick="showTab('manage')">⚙️ Manage</button>
+</nav>
+<!-- ═══════════════════ TAB 1: NOTES ═══════════════════ -->
+<div id="tab-notes" class="tab-content active">
+<div class="page-header">
+  <div class="subject-tag">JEE Mains · Advanced · Master Reference 2026–27</div>
+  <h1><span>Chemical Identification Tests</span></h1>
+  <div class="subtitle">Tollens' · Fehling's · Benedict's · Haloform/Iodoform · Victor Meyer · JEE Trends · Mistakes</div>
+</div>
+
+<div class="section-label">A — Tollens' Reagent Test</div>
+<div class="grid-2">
+<div class="card accent-blue">
+  <div class="card-title"><span class="dot dot-blue"></span>Core Theory &amp; Reaction <span class="tag tag-jee">★★★★★</span></div>
+  <div class="rxn"><b>Reagent:</b> <span class="r">AgNO₃</span> + excess <span class="r">NH₄OH</span> <span class="arr">→</span> <span class="p">[Ag(NH₃)₂]⁺OH⁻</span><br><span class="cl">// ammoniacal silver nitrate · must be freshly prepared — explosive Ag₃N forms on storage</span></div>
+  <div class="rxn"><span class="r">RCHO</span> + 2[Ag(NH₃)₂]⁺ + 2OH⁻ <span class="arr">→</span> <span class="p">RCOO⁻</span> + <span class="p">2Ag↓ (mirror)</span> + 4NH₃ + H₂O<br><span class="cl">// Ag⁺ oxidizes aldehyde → acid; Ag⁺ reduced to Ag metal = silver mirror</span></div>
+  <ul class="blist" style="margin-top:9px">
+    <li>✓ <b>Positive (gives silver mirror):</b> All aliphatic aldehydes (HCHO, CH₃CHO, RCHO), all aromatic aldehydes (PhCHO, p-NO₂C₆H₄CHO), formic acid (HCOOH), glucose, fructose, maltose, lactose, glycolaldehyde</li>
+    <li>✗ <b>Negative:</b> All ketones (except α-hydroxy ketones in some cases), sucrose, starch, cellulose, all alcohols, acetic acid, propionic acid, all other carboxylic acids except HCOOH</li>
+    <li><b>Why HCOOH is positive:</b> Structure H–C(=O)–OH has a free –CHO group; unique among carboxylic acids</li>
+    <li><b>Why ketones fail:</b> No α-H on the carbonyl carbon available for oxidation; Cu²⁺/Ag⁺ cannot oxidize the C–C bond easily</li>
+    <li><b>Reaction type:</b> Oxidation-reduction (aldehyde oxidized to carboxylate; Ag⁺ reduced to Ag⁰)</li>
+  </ul>
+  <div class="trap-box"><span>⚠</span><div><b>JEE Trap #1:</b> Terminal alkynes (RC≡CH) give a <b>WHITE PRECIPITATE</b> of silver acetylide (RC≡CAg), NOT a silver mirror. This tests C–H acidity (pKa ~25), not reducing ability. The mirror test = aldehyde only.<br><b>JEE Trap #2:</b> Fructose gives +ve Tollens' despite being a ketone — tautomerism in alkaline medium (enediol → glucose).</div></div>
+</div>
+<div class="card accent-blue">
+  <div class="card-title"><span class="dot dot-blue"></span>Special Cases &amp; JEE-High-Yield Facts</div>
+  <ul class="blist">
+    <li>⭐ <b>Acetaldehyde (CH₃CHO):</b> +ve Tollens', +ve Fehling's, +ve Iodoform — the ONLY compound with all three. Tested repeatedly in JEE.</li>
+    <li>⭐ <b>Formaldehyde (HCHO):</b> +ve Tollens', +ve Fehling's, but NEGATIVE iodoform (no CH₃CO– group)</li>
+    <li>⭐ <b>Fructose:</b> +ve Tollens' &amp; Fehling's via Lobry de Bruyn–van Ekenstein transformation (enediol tautomerism in base)</li>
+    <li>⭐ <b>Sucrose:</b> NEGATIVE — glycosidic bond locks C-1 (glucose) and C-2 (fructose) anomeric carbons — non-reducing sugar</li>
+    <li><b>Maltose &amp; Lactose:</b> +ve Tollens' — reducing disaccharides with free –CHO group</li>
+    <li><b>Glyoxal (OHC–CHO):</b> +ve Tollens' — has two –CHO groups</li>
+    <li><b>Benzoin (PhCH(OH)COPh):</b> α-hydroxy ketone → can give +ve Tollens' via enolization in base</li>
+    <li>Tollens' does NOT distinguish HCHO from RCHO — both give mirror; use iodoform for HCHO (negative) vs CH₃CHO (positive)</li>
+  </ul>
+  <div class="note-box blue"><span>💡</span><span><b>Sensitivity:</b> Tollens' is very sensitive — works at room temperature. Warming the test tube speeds up the reaction and gives a brighter mirror.</span></div>
+</div>
+</div>
+
+<div class="section-label">B — Fehling's Solution &amp; Benedict's Test</div>
+<div class="grid-2">
+<div class="card accent-green">
+  <div class="card-title"><span class="dot dot-green"></span>Fehling's Solution — Composition &amp; Reaction <span class="tag tag-jee">★★★★</span></div>
+  <div class="rxn"><b>Fehling A:</b> <span class="r">CuSO₄(aq)</span> &nbsp;|&nbsp; <b>Fehling B:</b> <span class="r">Sodium potassium tartrate (Rochelle salt) + NaOH</span><br><span class="cl">// mixed 1:1 just before use · tartrate complexes Cu²⁺ to prevent Cu(OH)₂ precipitation · Cu²⁺ + tartrate = deep blue complex</span></div>
+  <div class="rxn"><span class="r">RCHO</span> + 2Cu²⁺(tartrate complex) + 5OH⁻ <span class="arr">→</span> <span class="p">RCOO⁻</span> + <span class="p">Cu₂O↓ (brick-red)</span> + 3H₂O<br><span class="cl">// Cu²⁺ → Cu⁺ (Cu₂O) · brick-red precipitate = positive · solution changes from blue → green → brick-red</span></div>
+  <ul class="blist" style="margin-top:9px">
+    <li>✓ <b>Positive:</b> All aliphatic aldehydes (HCHO, CH₃CHO etc.), formic acid (HCOOH), glucose, fructose, maltose, lactose, glyceraldehyde, dihydroxyacetone (α-hydroxy ketone)</li>
+    <li>✗ <b>Negative:</b> <span class="hl-red">Benzaldehyde (PhCHO)</span> and ALL aromatic aldehydes, all ketones (except α-hydroxy ketones in alkaline), sucrose, starch, alcohols</li>
+    <li>⭐ <b>Key JEE distinction:</b> Fehling's SEPARATES aliphatic from aromatic aldehydes. PhCHO gives +ve Tollens' but –ve Fehling's.</li>
+    <li><b>Why aromatic aldehydes fail:</b> Aromatic ring delocalizes electron density → –CHO is less electron-rich/reactive → cannot reduce the Cu²⁺ complex</li>
+    <li><b>Why fructose passes:</b> In hot alkaline Fehling's, fructose tautomerizes (enediol form) → partially converts to glucose → reduces Cu²⁺</li>
+  </ul>
+  <div class="trap-box"><span>⚠</span><div><b>Trap:</b> Fehling's test must be heated (hot) — unlike Tollens' which works at room temperature. Cold Fehling's may not give a visible result even with aliphatic aldehydes.</div></div>
+</div>
+<div class="card accent-cyan">
+  <div class="card-title"><span class="dot dot-cyan"></span>Benedict's Test &amp; Comparison <span class="tag tag-jee">★★★</span></div>
+  <div class="rxn"><b>Reagent:</b> <span class="r">CuSO₄</span> + <span class="r">Sodium citrate</span> + <span class="r">Na₂CO₃</span> in one stable solution<br><span class="cl">// citrate is a better stabilizer than tartrate · single-bottle reagent · more stable on storage</span></div>
+  <ul class="blist" style="margin-top:9px">
+    <li><b>Same positive/negative list as Fehling's</b> — identical chemistry, same compounds pass/fail</li>
+    <li>Benedict's is <b>more sensitive</b> than Fehling's — can detect lower concentrations of glucose</li>
+    <li>Benedict's is a <b>single stable solution</b>; Fehling's requires mixing A and B fresh each time</li>
+    <li>Clinical standard for detecting glucose in urine (semi-quantitative — colour gradient from blue→green→yellow→orange→red indicates glucose concentration)</li>
+    <li>Benedict's gives colour gradient: Blue (0 g/dL) → Green → Yellow → Orange → Brick-red (>2 g/dL)</li>
+    <li>Cannot distinguish reducing sugars from each other — only tells if reducing sugar is present</li>
+    <li>Starch, cellulose, sucrose, trehalose (all non-reducing) → NEGATIVE both tests</li>
+  </ul>
+  <div class="note-box cyan"><span>💡</span><span><b>JEE Point:</b> For JEE purposes, Benedict's and Fehling's are interchangeable in results. Just remember: both fail with aromatic aldehydes and pure ketones. Benedict's is more clinically used.</span></div>
+  <div class="note-box green"><span>★</span><span><b>Shortcut:</b> If a compound gives +ve Fehling's, it MUST also give +ve Tollens'. The reverse is NOT true (PhCHO = +ve Tollens', –ve Fehling's).</span></div>
+</div>
+</div>
+
+<div class="section-label">C — Haloform Reaction &amp; Iodoform Test</div>
+<div class="grid-2">
+<div class="card accent-amber">
+  <div class="card-title"><span class="dot dot-amber"></span>Reagent, Reaction &amp; Mechanism <span class="tag tag-jee">★★★★★</span></div>
+  <div class="rxn"><b>Reagent (Iodoform):</b> <span class="r">I₂ + NaOH(aq)</span> or <span class="r">NaI + NaOCl</span> · warm<br><b>General Haloform:</b> <span class="r">X₂ + NaOH</span> (X = Cl, Br, I)<br><span class="cl">// yellow CHI₃ ppt with antiseptic smell = +ve · CHCl₃ (chloroform) &amp; CHBr₃ (bromoform) also form with Cl₂/Br₂</span></div>
+  <div class="rxn"><span class="r">CH₃CO–R</span> + 3I₂ + 3NaOH <span class="arr">→</span> <span class="p">CI₃CO–R</span> + 3NaI + 3H₂O (step 1–3)<br>CI₃CO–R + NaOH <span class="arr">→</span> <span class="p">CHI₃↓ (yellow)</span> + <span class="p">RCOONa</span> (step 4)</div>
+  <div class="must-box">
+    <div class="must-hdr">⚠ Must Remember — Mechanism (JEE-Level, 4 Steps)</div>
+    <div class="step-list">
+      <div class="step"><div class="snum blue">1</div><div class="stext"><b>α-Deprotonation:</b> NaOH removes α-H from CH₃ group → carbanion forms</div></div>
+      <div class="step"><div class="snum blue">2</div><div class="stext"><b>Halogenation × 3:</b> Carbanion attacks I₂ → α-C substituted 3 times → CI₃CO–R (triiodo intermediate)</div></div>
+      <div class="step"><div class="snum blue">3</div><div class="stext"><b>Nucleophilic addition:</b> OH⁻ attacks the carbonyl carbon of CI₃CO–R → tetrahedral intermediate</div></div>
+      <div class="step"><div class="snum blue">4</div><div class="stext"><b>Elimination:</b> CI₃⁻ is an excellent leaving group → CHI₃ (iodoform) + RCOONa formed</div></div>
+    </div>
+  </div>
+</div>
+<div class="card accent-amber">
+  <div class="card-title"><span class="dot dot-amber"></span>Positive &amp; Negative Compounds — Complete List</div>
+  <ul class="blist">
+    <li>⭐ <b>Structural requirement:</b> <span class="hl-amber">CH₃CO–R</span> (methyl ketone) OR <span class="hl-amber">CH₃CH(OH)–R</span> (methyl secondary carbinol)</li>
+    <li>✓ <b>Methyl ketones (CH₃COR):</b> Acetone (CH₃COCH₃), MEK (CH₃COC₂H₅), methyl n-propyl ketone, methyl i-propyl ketone</li>
+    <li>✓ <b>Only aldehyde:</b> Acetaldehyde (CH₃CHO) — has CH₃CO– group</li>
+    <li>✓ <b>Acetophenone (PhCOCH₃) ⭐:</b> Has CH₃CO– group → positive (very frequently tested!)</li>
+    <li>✓ <b>Methyl carbinols CH₃CH(OH)R:</b> Ethanol (C₂H₅OH), isopropanol ((CH₃)₂CHOH), 2-butanol, 2-pentanol, butan-2-ol</li>
+    <li>✗ <b>HCHO:</b> No CH₃CO– group — NEGATIVE (most common trap)</li>
+    <li>✗ <b>Higher aldehydes (propanal, butanal, PhCHO):</b> No CH₃CO– group → NEGATIVE</li>
+    <li>✗ <b>Methanol (CH₃OH):</b> NaOH/I₂ oxidizes → HCHO (no CH₃CO–) → NEGATIVE</li>
+    <li>✗ <b>1-propanol, n-butanol, 1-pentanol (primary alcohols except ethanol):</b> Give non-methyl aldehydes/ketones → NEGATIVE</li>
+    <li>✗ <b>Diethyl ketone (CH₃CH₂COCH₂CH₃):</b> No CH₃CO– group → NEGATIVE</li>
+    <li>⭐ <b>Ethanol → iodoform pathway:</b> NaOH/I₂ first oxidizes EtOH to CH₃CHO, then iodoform reaction proceeds</li>
+  </ul>
+  <div class="trap-box"><span>⚠</span><div><b>Trick question:</b> "How many of these give iodoform: acetone, HCHO, iPrOH, PhCOCH₃, n-butanol, 2-butanol?"<br>Answer: <b>4</b> — acetone ✓, iPrOH ✓, PhCOCH₃ ✓, 2-butanol ✓. HCHO ✗ (no CH₃CO–), n-butanol ✗ (→ butanal).</div></div>
+</div>
+</div>
+
+<div class="section-label">D — Victor Meyer Test</div>
+<div class="grid-2">
+<div class="card accent-pink">
+  <div class="card-title"><span class="dot dot-pink"></span>Purpose, Reagents &amp; Steps <span class="tag tag-jee">★★★★</span></div>
+  <ul class="blist" style="margin-bottom:10px">
+    <li><b>Purpose:</b> Classify <span class="hl-pink">1°, 2°, 3° alcohols</span> using colour observation — one of the most reliable tests</li>
+    <li><b>Reagents:</b> (i) Red P + I₂ (ii) AgNO₂ (iii) HNO₂ (generated from NaNO₂ + dil. HCl) (iv) KOH</li>
+    <li><b>Basis:</b> Different structural response of primary, secondary and tertiary nitroalkanes to nitrous acid (HNO₂) — tautomerism is key</li>
+  </ul>
+  <div class="step-list">
+    <div class="step"><div class="snum pink">1</div><div class="stext"><b>Alcohol → Alkyl Iodide:</b> R–OH + Red P + I₂ → R–I + H₂O (or use PCl₅/SOCl₂)</div></div>
+    <div class="step"><div class="snum pink">2</div><div class="stext"><b>Alkyl Iodide → Nitroalkane:</b> R–I + AgNO₂ → R–NO₂ + AgI↓ (silver nitrite = source of NO₂⁻)</div></div>
+    <div class="step"><div class="snum pink">3</div><div class="stext"><b>Nitroalkane + HNO₂:</b> Add NaNO₂ + dil. HCl → HNO₂ in situ → react with nitroalkane</div></div>
+    <div class="step"><div class="snum pink">4</div><div class="stext"><b>Add KOH/NaOH base</b> → observe final stable colour</div></div>
+  </div>
+  <div class="trap-box"><span>⚠</span><div><b>Confusion with Hinsberg's test:</b> Hinsberg's (with benzenesulfonyl chloride) classifies 1°/2°/3° <b>AMINES</b>. Victor Meyer classifies 1°/2°/3° <b>ALCOHOLS</b>. Don't mix them up!</div></div>
+</div>
+<div class="card accent-pink">
+  <div class="card-title"><span class="dot dot-pink"></span>Colour Results, Products &amp; Chemistry</div>
+  <div class="vm-row">
+    <div class="vm-box">
+      <div class="vm-lbl">Primary (1°)</div>
+      <div class="vm-col" style="color:#ff6b6b">Blood-Red ⟺ Colourless</div>
+      <div class="vm-sub"><b>Product: Nitrolic acid</b><br>R–C(=NOH)–NO₂<br>Red salt in KOH; colourless in acid<br>Reaction: RCH₂NO₂ + HNO₂ → RC(NO₂)=NOH<br>α-H abstracted → nitrolic acid tautomer</div>
+    </div>
+    <div class="vm-box">
+      <div class="vm-lbl">Secondary (2°)</div>
+      <div class="vm-col" style="color:#4ecdc4">Blue / Blue-Green</div>
+      <div class="vm-sub"><b>Product: Pseudonitrole</b><br>R₂C(NO)(NO₂)<br>Blue in solution; colourless on heating<br>Reaction: R₂CHNO₂ + HNO₂ → R₂C(NO)NO₂<br>Nitroso (–N=O) chromophore → blue</div>
+    </div>
+    <div class="vm-box">
+      <div class="vm-lbl">Tertiary (3°)</div>
+      <div class="vm-col" style="color:#8892a4">Colourless (No Rxn)</div>
+      <div class="vm-sub"><b>No product formed</b><br>R₃C–NO₂ + HNO₂ → N.R.<br>No α-H available → no tautomer → HNO₂ cannot react → colourless</div>
+    </div>
+  </div>
+  <div class="note-box pink" style="margin-top:10px"><span>💡</span><span><b>Mnemonic — "1-Red, 2-Blue, 3-Through":</b> 1° → Red (nitrolic acid in KOH); 2° → Blue (pseudonitrole); 3° → Through (no colour). Also: "RBT — Red, Blue, Transparent."</span></div>
+  <div class="note-box purple" style="margin-top:8px"><span>★</span><span><b>JEE Extra:</b> The 1° red colour ONLY appears in alkaline (KOH) medium — it is the potassium nitrolic acid salt that is red. Acidify it and it turns colourless. This acid-base colour change is a secondary observation often tested.</span></div>
+</div>
+</div>
+
+<div class="section-label">E — JEE Trends, Common Mistakes &amp; Quick Revision</div>
+<div class="grid-2">
+<div class="card accent-purple">
+  <div class="card-title"><span class="dot dot-purple"></span>JEE Mains &amp; Advanced Trends 2020–2026 <span class="tag tag-jee">★★★★★</span></div>
+  <ul class="blist">
+    <li>⭐ <b>[Most tested, 2020–2025]:</b> "Which compound gives +ve iodoform but –ve Tollens'?" → Acetone, MEK, PhCOCH₃, iPrOH — methyl ketones/carbinols that aren't aldehydes</li>
+    <li>⭐ <b>[JEE Mains ~2021, Assertion-Reason]:</b> A: Fructose gives Tollens' test. R: Fructose contains a free aldehyde group. → A is TRUE, R is FALSE (correct reason = tautomerism). Very high yield.</li>
+    <li>⭐ <b>[JEE Mains ~2022–23, Integer type]:</b> "How many of these give +ve iodoform?" — requires complete knowledge including PhCOCH₃, EtOH, iPrOH</li>
+    <li>⭐ <b>[JEE Mains ~2024]:</b> Terminal alkyne + Tollens' → white precipitate trap. "Tollens' gives white ppt not mirror" — frequently tested MCQ option</li>
+    <li><b>[JEE Advanced ~2022, Matrix Match]:</b> Formic acid, benzaldehyde, acetophenone, glucose matched to test results — requires knowing PhCHO fails Fehling's; HCOOH passes Tollens'</li>
+    <li><b>[Post-2023 shift]:</b> More application-based — "Product X formed from reaction Y; does X give Tollens' test?" Combines mechanism + test knowledge</li>
+    <li><b>[2024–25 trend]:</b> Carbohydrate-heavy: reducing vs non-reducing sugars, why fructose behaves like aldehyde, glycosidic bond and its role in non-reducing character of sucrose</li>
+    <li><b>Question types seen:</b> Integer (count), Multiple Correct, Match the Following, Assertion-Reason, Comprehension (sequential identification)</li>
+  </ul>
+</div>
+<div class="card accent-red">
+  <div class="card-title"><span class="dot dot-red"></span>Common Student Mistakes &amp; Golden Facts</div>
+  <div class="must-box">
+    <div class="must-hdr">⚠ 8 Most Common Mistakes in JEE</div>
+    <ul class="blist">
+      <li>✗ <b>Mistake 1:</b> Thinking PhCHO gives Fehling's. It does NOT — aromatic aldehydes fail Fehling's/Benedict's.</li>
+      <li>✗ <b>Mistake 2:</b> Thinking HCHO gives iodoform. It does NOT — no CH₃CO– group adjacent to carbonyl.</li>
+      <li>✗ <b>Mistake 3:</b> Terminal alkyne → "silver mirror." WRONG — gives white silver acetylide precipitate, not mirror.</li>
+      <li>✗ <b>Mistake 4:</b> Sucrose gives +ve Fehling's because it contains glucose+fructose. WRONG — sucrose is non-reducing; the glycosidic bond prevents reaction.</li>
+      <li>✗ <b>Mistake 5:</b> Methanol gives iodoform. WRONG — NaOH/I₂ → HCHO (not CH₃CHO), so no iodoform.</li>
+      <li>✗ <b>Mistake 6:</b> Acetophenone (PhCOCH₃) gives –ve iodoform. WRONG — PhCOCH₃ has CH₃CO– → +ve iodoform ⭐</li>
+      <li>✗ <b>Mistake 7:</b> All ketones fail Tollens'. WRONG — α-hydroxy ketones (e.g., fructose, benzoin) can pass via enolization.</li>
+      <li>✗ <b>Mistake 8:</b> Victor Meyer tests amines. WRONG — Victor Meyer = alcohols; Hinsberg's = amines.</li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<div class="section-label">F — One-Page Quick Revision Summary</div>
+<div class="grid-2">
+<div class="card accent-blue" style="border-color:var(--blue)">
+  <div class="card-title"><span class="dot dot-blue"></span>Tollens' + Fehling's/Benedict's — Crux</div>
+  <ul class="blist">
+    <li>⭐ Tollens' = <b>silver mirror</b>; all aldehydes + HCOOH + glucose + fructose pass</li>
+    <li>⭐ Terminal alkyne = <b>white ppt (Ag-acetylide)</b>, NOT mirror — differentiate!</li>
+    <li>⭐ Fehling's/Benedict's = <b>brick-red Cu₂O</b>; PhCHO always FAILS — key distinction from Tollens'</li>
+    <li>⭐ If +ve Tollens' but –ve Fehling's → <b>Aromatic aldehyde</b> (e.g., PhCHO)</li>
+    <li>Fructose passes both despite being ketone → enediol tautomerism in alkaline</li>
+    <li>Sucrose fails all tests — non-reducing (acetal bond locks anomeric carbons)</li>
+    <li>HCOOH passes Tollens' &amp; Fehling's — only acid with –CHO character</li>
+  </ul>
+</div>
+<div class="card accent-amber" style="border-color:var(--amber)">
+  <div class="card-title"><span class="dot dot-amber"></span>Iodoform + Victor Meyer — Crux</div>
+  <ul class="blist">
+    <li>⭐ Iodoform = yellow CHI₃; need <b>CH₃CO–R or CH₃CH(OH)–R</b></li>
+    <li>⭐ Only aldehyde = <b>CH₃CHO</b>; HCHO = NEGATIVE iodoform</li>
+    <li>⭐ <b>PhCOCH₃</b> = +ve iodoform (has CH₃CO–) — most tested trap</li>
+    <li>⭐ EtOH = +ve; MeOH = –ve; iPrOH = +ve; 1-PrOH = –ve</li>
+    <li>CH₃CHO = ONLY compound +ve for Tollens' + Fehling's + Iodoform simultaneously</li>
+    <li>Victor Meyer: 1° = <b>Red</b> (nitrolic acid); 2° = <b>Blue</b> (pseudonitrole); 3° = <b>Colourless</b></li>
+    <li>Mnemonic: <b>MACE</b> for iodoform positives — Methyl ketones, Acetaldehyde (only), Carbinols (methyl), Ethanol only</li>
+  </ul>
+</div>
+</div>
+
+<div class="section-label">G — Cannizzaro Reaction</div>
+<div class="grid-2">
+<div class="card accent-purple">
+  <div class="card-title"><span class="dot dot-purple"></span>Core Theory, Mechanism &amp; Kinetics <span class="tag tag-jee">★★★★★</span></div>
+  <ul class="blist">
+    <li><b>Definition:</b> Aldehydes with <span class="hl-purple">NO α-hydrogen</span> undergo disproportionation in conc. NaOH → one molecule oxidized (→ carboxylate), one reduced (→ alcohol)</li>
+    <li><b>Substrates:</b> HCHO, PhCHO, trimethylacetaldehyde (pivaldehyde), furfural, ClCH₂CHO — all have NO α-H</li>
+    <li><b>Does NOT occur with:</b> CH₃CHO, CH₃CH₂CHO — these have α-H → undergo aldol condensation instead</li>
+    <li><b>Reagent:</b> Concentrated NaOH (not dilute); aqueous medium</li>
+  </ul>
+  <div class="rxn">2 <span class="r">RCHO</span> + NaOH(conc.) <span class="arr">→</span> <span class="p">RCH₂OH</span> + <span class="p">RCOONa</span><br><span class="cl">// e.g. 2PhCHO + NaOH → PhCH₂OH (benzyl alcohol) + PhCOONa (sodium benzoate)</span></div>
+  <div class="must-box" style="margin-top:10px">
+    <div class="must-hdr">Mechanism — 3 Steps (JEE Advanced Level)</div>
+    <div class="step-list">
+      <div class="step"><div class="snum blue">1</div><div class="stext"><b>OH⁻ attacks C=O:</b> Hydroxide attacks carbonyl of one RCHO → tetrahedral alkoxide intermediate R–CH(OH)–O⁻ (fast step)</div></div>
+      <div class="step"><div class="snum blue">2</div><div class="stext"><b>Hydride (H⁻) transfer (RDS):</b> Alkoxide donates H⁻ to carbonyl carbon of a SECOND RCHO molecule. Rate = k[RCHO]²[OH⁻]. This is the slow, rate-determining step.</div></div>
+      <div class="step"><div class="snum blue">3</div><div class="stext"><b>Products form:</b> One RCHO → RCOO⁻ (oxidized, loses H); other RCHO → RCH₂O⁻ → RCH₂OH (reduced, gains H⁻)</div></div>
+    </div>
+  </div>
+  <div class="note-box purple" style="margin-top:9px"><span>⚡</span><span><b>Kinetics:</b> Rate = k[RCHO]²[OH⁻]. 2nd order in aldehyde, 1st order in OH⁻. RDS = hydride transfer (step 2). Deuterium label: RCDO → D ends up in the alcohol product (RCH₂OH gets the D).</span></div>
+</div>
+<div class="card accent-purple">
+  <div class="card-title"><span class="dot dot-purple"></span>Special Cases, Cross-Cannizzaro &amp; JEE Advanced Examples</div>
+  <ul class="blist">
+    <li>⭐ <b>Intramolecular Cannizzaro:</b> Glyoxal (OHC–CHO) + NaOH → glycolate (HOCH₂COO⁻) — one –CHO oxidized, other reduced within same molecule. Product = sodium glycolate.</li>
+    <li>⭐ <b>Cross-Cannizzaro (HCHO + RCHO + NaOH):</b> HCHO is ALWAYS the reductant (best H⁻ donor) → HCHO oxidized to HCOONa; RCHO reduced to RCH₂OH. Never the other way around.</li>
+    <li>⭐ <b>EWG on ring (p-NO₂, p-Cl):</b> More electrophilic C=O → faster OH⁻ addition (step 1) → faster overall rate</li>
+    <li>⭐ <b>EDG on ring (p-CH₃, p-OCH₃):</b> Less electrophilic C=O → slower OH⁻ addition → slower rate</li>
+    <li>⭐ <b>Isotope labelling (¹⁸O):</b> If RCHO has ¹⁸O at C=O → after Cannizzaro, ¹⁸O ends up in the ACID product (RCOO⁻). The OH⁻ oxygen goes into the alkoxide/alcohol. C=¹⁸O of oxidized molecule becomes C–¹⁸OO⁻.</li>
+    <li>⭐ <b>No-crossover between molecules:</b> H⁻ transfer is intramolecular within the alkoxide-aldehyde complex — never a free hydride. Crossover experiments confirm this.</li>
+    <li><b>Phthalaldehyde (o-OHC–C₆H₄–CHO):</b> Intramolecular Cannizzaro → o-hydroxymethylbenzoate</li>
+    <li><b>Aldol vs Cannizzaro selectivity:</b> Aldehyde WITH α-H → always aldol in NaOH, never Cannizzaro. Mixed system: if one aldehyde has α-H, aldol dominates even if other has no α-H.</li>
+  </ul>
+  <div class="trap-box"><span>⚠</span><div><b>Critical JEE trap:</b> In cross-Cannizzaro HCHO + PhCHO + NaOH → PhCH₂OH + HCOONa. HCHO is oxidized (→ formate), PhCHO is reduced (→ benzyl alcohol). Students often get this backwards.</div></div>
+</div>
+</div>
+
+<div class="section-label">H — Reimer–Tiemann Reaction</div>
+<div class="grid-2">
+<div class="card accent-cyan">
+  <div class="card-title"><span class="dot dot-cyan"></span>Core Theory, Mechanism &amp; Salicylaldehyde <span class="tag tag-jee">★★★★</span></div>
+  <ul class="blist">
+    <li><b>Definition:</b> Formylation of activated aromatic rings (especially phenols) using CHCl₃ + NaOH → introduces –CHO group ortho to –OH</li>
+    <li><b>Substrates:</b> Phenol (main), resorcinol, β-naphthol. Benzene does NOT react — needs activation by –OH.</li>
+    <li><b>Reagent:</b> CHCl₃ + aq. NaOH (conc.) at 60–70°C</li>
+  </ul>
+  <div class="rxn"><span class="r">C₆H₅OH</span> + CHCl₃ + 3NaOH <span class="arr">→</span> <span class="p">o-HOC₆H₄CHO</span> (salicylaldehyde) + 3NaCl + 2H₂O<br><span class="cl">// mainly ortho product; some para also formed · acidify to get free phenol-aldehyde</span></div>
+  <div class="must-box" style="margin-top:10px">
+    <div class="must-hdr">Mechanism — 4 Steps</div>
+    <div class="step-list">
+      <div class="step"><div class="snum blue">1</div><div class="stext"><b>Carbene generation (RDS):</b> CHCl₃ + NaOH → CCl₃⁻ → :CCl₂ (dichlorocarbene) + Cl⁻ by α-elimination. :CCl₂ is the actual reactive electrophile.</div></div>
+      <div class="step"><div class="snum blue">2</div><div class="stext"><b>Phenoxide formation:</b> NaOH converts PhOH → PhO⁻ (phenoxide) — highly activated ring for electrophilic attack</div></div>
+      <div class="step"><div class="snum blue">3</div><div class="stext"><b>Electrophilic attack:</b> :CCl₂ attacks ortho (major) or para position of phenoxide → –CCl₂ adduct on ring</div></div>
+      <div class="step"><div class="snum blue">4</div><div class="stext"><b>Hydrolysis:</b> –CCl₂ adduct + NaOH/H₂O → –CHO + 2NaCl + H₂O → salicylaldehyde after acidification</div></div>
+    </div>
+  </div>
+  <div class="note-box green" style="margin-top:9px"><span>★</span><span><b>Salicylaldehyde → Salicylic acid:</b> Reimer-Tiemann gives salicylaldehyde → oxidize with Ag₂O or KMnO₄ → salicylic acid. Compare: Kolbe-Schmitt (PhONa + CO₂, pressure) → salicylate directly. Both routes to salicylic acid but via different intermediates (aldehyde vs direct carboxylation).</span></div>
+</div>
+<div class="card accent-cyan">
+  <div class="card-title"><span class="dot dot-cyan"></span>Abnormal Reimer–Tiemann &amp; Key Facts</div>
+  <ul class="blist">
+    <li>⭐ <b>Normal R-T:</b> Both ortho positions available → :CCl₂ attacks ortho C → –CHO introduced. Ortho major, para minor (due to proximity of :CCl₂ to phenoxide O).</li>
+    <li>⭐ <b>Abnormal Reimer–Tiemann:</b> Both ortho positions BLOCKED (e.g. 2,6-dimethylphenol) → :CCl₂ cannot attack ortho → attacks C-1 (ipso, bearing O⁻) → intermediate rearranges → <span class="hl-cyan">2,2-dichlorocyclohexadienone</span> derivative. NO –CHO formed. Completely different product!</li>
+    <li>⭐ <b>Only activated rings react:</b> Phenol ✓, resorcinol ✓ (two –OH → very reactive → CHO at C-2 and C-4 possible), β-naphthol ✓ (→ 2-hydroxy-1-naphthaldehyde)</li>
+    <li><b>Does NOT work:</b> Benzene ✗, aniline (different reaction), nitrobenzene ✗ (deactivated)</li>
+    <li><b>Reimer-Tiemann vs Kolbe-Schmitt:</b> R-T → :CCl₂ → –CHO (salicylaldehyde). Kolbe → CO₂ → –COOH (salicylate). Products differ by one oxidation level.</li>
+    <li><b>Ortho selectivity reason:</b> :CCl₂ is guided to ortho by coordination with adjacent phenoxide oxygen (proximity/intramolecular effect)</li>
+  </ul>
+  <div class="trap-box"><span>⚠</span><div><b>JEE Trap:</b> Abnormal R-T does NOT give salicylaldehyde. When both ortho positions are blocked → 2,2-dichlorocyclohexadienone (no –CHO). If question shows 2,6-disubstituted phenol → expect abnormal product.</div></div>
+  <div class="note-box amber" style="margin-top:8px"><span>💡</span><span><b>Remember:</b> The reactive intermediate is <b>:CCl₂ (dichlorocarbene)</b>, generated from CHCl₃ by NaOH. :CCl₂ is electrophilic. It is NOT CHCl₃ itself that reacts with the ring.</span></div>
+</div>
+</div>
+
+<div class="section-label">I — Pinacol–Pinacolone Rearrangement</div>
+<div class="grid-2">
+<div class="card accent-amber">
+  <div class="card-title"><span class="dot dot-amber"></span>Core Reaction, Mechanism &amp; Migratory Aptitude <span class="tag tag-jee">★★★★★</span></div>
+  <div class="rxn"><span class="r">(CH₃)₂C(OH)–C(OH)(CH₃)₂</span> + H⁺ <span class="arr">→</span> <span class="p">(CH₃)₃C–CO–CH₃</span> (pinacolone) + H₂O<br><span class="cl">// pinacol (2,3-dimethyl-2,3-butanediol) → pinacolone (3,3-dimethylbutan-2-one)</span></div>
+  <div class="must-box" style="margin-top:9px">
+    <div class="must-hdr">Mechanism — 4 Steps</div>
+    <div class="step-list">
+      <div class="step"><div class="snum amber">1</div><div class="stext"><b>Protonation:</b> H⁺ protonates one –OH of the 1,2-diol → –OH₂⁺. The OH that gives the MORE STABLE carbocation after leaving is protonated first.</div></div>
+      <div class="step"><div class="snum amber">2</div><div class="stext"><b>Ionization:</b> –OH₂⁺ departs → carbocation (R₂C⁺–C(OH)R₂) formed. More substituted/stable cation preferred.</div></div>
+      <div class="step"><div class="snum amber">3</div><div class="stext"><b>1,2-Migration (RDS):</b> The group with highest migratory aptitude (R = alkyl, aryl, H) on the carbon bearing –OH migrates with its bonding electrons to the adjacent C⁺ → new oxocarbenium ion. STRICTLY INTRAMOLECULAR.</div></div>
+      <div class="step"><div class="snum amber">4</div><div class="stext"><b>Deprotonation:</b> Loss of H⁺ from –OH → ketone (pinacolone) formed as final product</div></div>
+    </div>
+  </div>
+  <ul class="blist" style="margin-top:9px">
+    <li>⭐ <b>Migratory aptitude:</b> Aryl > Vinyl > tert-Alkyl > sec-Alkyl > H > Methyl > n-Alkyl<br>Mnemonic: <span class="hl-amber">"All Very Tired Students Have Massive Notes"</span></li>
+    <li>⭐ <b>Product is always a carbonyl compound</b> — ketone (usually) or aldehyde (if H migrates)</li>
+    <li><b>Driving force:</b> Formation of more stable carbocation + thermodynamically stable C=O product</li>
+  </ul>
+</div>
+<div class="card accent-amber">
+  <div class="card-title"><span class="dot dot-amber"></span>No Crossover · Semi-Pinacol · Cyclohexane Ring · Key JEE Points</div>
+  <ul class="blist">
+    <li>⭐ <b>NO crossover products:</b> Migration is STRICTLY INTRAMOLECULAR — the group NEVER leaves the molecule. Crossover experiments (mix two differently labeled diols) → ZERO exchange of groups between molecules. Proves 1,2-shift is concerted with ionization (intimate ion pair mechanism).</li>
+    <li>⭐ <b>Semi-Pinacol rearrangement:</b> Only ONE –OH present; adjacent carbon has another leaving group (halide, tosylate) or is part of strained ring → still gives 1,2-shift → ketone/aldehyde. Used for <span class="hl-amber">ring expansion or contraction</span>. E.g.: cyclopentane ring with –OH + adjacent –X → semi-pinacol → cyclohexanone (ring expansion).</li>
+    <li>⭐ <b>Pinacol in cyclohexane ring (trans-cyclohexane-1,2-diol):</b> H⁺ protonates one OH → leaves → carbocation → the <span class="hl-amber">anti-periplanar C–C bond of the ring migrates</span> to the cation → cyclohexanone. cis vs trans diol gives DIFFERENT products due to anti-periplanar requirement for migration (draw Newman projection!).</li>
+    <li>⭐ <b>Unsymmetrical diol selectivity:</b> The OH that generates the more stable carbocation leaves first. Then the group with highest migratory aptitude on the adjacent C (bearing –OH) migrates. Aryl always migrates preferentially if present.</li>
+    <li><b>H migration:</b> If only H can migrate (no alkyl/aryl on adjacent C) → H migrates → gives aldehyde instead of ketone</li>
+    <li><b>α-Hydroxy acid connection (JEE Advanced):</b> α-Hydroxy acids (e.g. mandelic acid PhCH(OH)COOH) can undergo analogous acid-catalyzed 1,2-shift with decarboxylation → related to pinacol-type rearrangement</li>
+  </ul>
+  <div class="trap-box"><span>⚠</span><div><b>JEE Traps:</b> (1) Migratory order — H comes AFTER tert-alkyl and sec-alkyl, NOT before aryl. (2) No crossover = intramolecular ALWAYS — never intermolecular. (3) cis-diol and trans-diol of cyclic compounds give DIFFERENT products due to anti-periplanar requirement.</div></div>
+</div>
+</div>
+
+
+
+</div><!-- end tab-notes -->
+
+<!-- ═══════════════════ TAB 2: MATRIX ═══════════════════ -->
+<div id="tab-matrix" class="tab-content">
+<div class="page-header">
+  <div class="subject-tag">Quick Reference</div>
+  <h1>Compound vs Test <span>Matrix</span></h1>
+  <div class="subtitle">All compounds × all tests · one glance</div>
+</div>
+<div class="card accent-purple" style="overflow-x:auto">
+  <div class="card-title"><span class="dot dot-purple"></span>Complete Compound Matrix</div>
+  <table class="tbl">
+    <thead><tr><th>Compound</th><th>Tollens'</th><th>Fehling's</th><th>Iodoform</th><th>Victor Meyer (if alcohol)</th><th>Key Reason</th></tr></thead>
+    <tbody>
+      <tr><td>HCHO (formaldehyde)</td><td class="pos">✓ Mirror</td><td class="pos">✓ Red ppt</td><td class="neg">✗</td><td>—</td><td class="cond">Aliphatic –CHO; no CH₃CO–</td></tr>
+      <tr><td>CH₃CHO (acetaldehyde) ⭐</td><td class="pos">✓ Mirror</td><td class="pos">✓ Red ppt</td><td class="pos">✓ Yellow</td><td>—</td><td class="cond">Only compound +ve ALL three</td></tr>
+      <tr><td>PhCHO (benzaldehyde) ⭐</td><td class="pos">✓ Mirror</td><td class="neg">✗</td><td class="neg">✗</td><td>—</td><td class="cond">Aromatic → fails Cu²⁺ reduction</td></tr>
+      <tr><td>CH₃COCH₃ (acetone)</td><td class="neg">✗</td><td class="neg">✗</td><td class="pos">✓ Yellow</td><td>—</td><td class="cond">Methyl ketone; no –CHO</td></tr>
+      <tr><td>PhCOCH₃ (acetophenone) ⭐</td><td class="neg">✗</td><td class="neg">✗</td><td class="pos">✓ Yellow</td><td>—</td><td class="cond">CH₃CO– present; JEE trap!</td></tr>
+      <tr><td>HCOOH (formic acid) ⭐</td><td class="pos">✓ Mirror</td><td class="pos">✓ Red ppt</td><td class="neg">✗</td><td>—</td><td class="cond">Masked –CHO; unique acid</td></tr>
+      <tr><td>CH₃COOH (acetic acid)</td><td class="neg">✗</td><td class="neg">✗</td><td class="neg">✗</td><td>—</td><td class="cond">No –CHO; acid doesn't give iodoform</td></tr>
+      <tr><td>Glucose ⭐</td><td class="pos">✓ Mirror</td><td class="pos">✓ Red ppt</td><td class="neg">✗</td><td>—</td><td class="cond">Reducing aldohexose</td></tr>
+      <tr><td>Fructose ⭐</td><td class="pos">✓ ⭐</td><td class="pos">✓ ⭐</td><td class="neg">✗</td><td>—</td><td class="cond">Ketose → enediol tautomerism in base</td></tr>
+      <tr><td>Sucrose ⭐</td><td class="neg">✗</td><td class="neg">✗</td><td class="neg">✗</td><td>—</td><td class="cond">Non-reducing; acetal locks anomeric –OH</td></tr>
+      <tr><td>Maltose / Lactose</td><td class="pos">✓</td><td class="pos">✓</td><td class="neg">✗</td><td>—</td><td class="cond">Reducing disaccharides</td></tr>
+      <tr><td>CH₃CH₂OH (ethanol) ⭐</td><td class="neg">✗</td><td class="neg">✗</td><td class="pos">✓ ⭐</td><td>1° → Red</td><td class="cond">Oxidized → CH₃CHO → CHI₃</td></tr>
+      <tr><td>CH₃OH (methanol)</td><td class="neg">✗</td><td class="neg">✗</td><td class="neg">✗</td><td>1° → Red</td><td class="cond">Oxidized → HCHO; no CH₃CO–</td></tr>
+      <tr><td>(CH₃)₂CHOH (isopropanol) ⭐</td><td class="neg">✗</td><td class="neg">✗</td><td class="pos">✓</td><td>2° → Blue</td><td class="cond">→ Acetone → CHI₃</td></tr>
+      <tr><td>(CH₃)₂CHCH(OH)CH₃ (2-butanol)</td><td class="neg">✗</td><td class="neg">✗</td><td class="neg">✗</td><td>2° → Blue</td><td class="cond">→ Methyl ethyl ketone but NOT acetone; wait — MEK has CH₃CO– → +ve iodoform!</td></tr>
+      <tr><td>tert-Butanol (CH₃)₃COH</td><td class="neg">✗</td><td class="neg">✗</td><td class="neg">✗</td><td>3° → Colourless</td><td class="cond">No CH₃CO– via oxidation; 3° alcohol</td></tr>
+      <tr><td>RC≡CH (terminal alkyne) ⭐</td><td class="cond">White ppt ⚠</td><td class="neg">✗</td><td class="neg">✗</td><td>—</td><td class="cond">Ag-acetylide ppt, NOT mirror!</td></tr>
+      <tr><td>Glyoxal (OHC–CHO)</td><td class="pos">✓</td><td class="pos">✓</td><td class="neg">✗</td><td>—</td><td class="cond">Two –CHO groups</td></tr>
+      <tr><td>Benzoin PhCH(OH)COPh</td><td class="cond">+ve (base)</td><td class="cond">+ve (base)</td><td class="neg">✗</td><td>2° → Blue</td><td class="cond">α-Hydroxy ketone → enolizes</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="card accent-amber" style="margin-top:13px;overflow-x:auto">
+  <div class="card-title"><span class="dot dot-amber"></span>Distinguishing Tests — Decision Guide</div>
+  <table class="tbl">
+    <thead><tr><th>To Distinguish</th><th>Best Test</th><th>Compound A</th><th>Compound B</th></tr></thead>
+    <tbody>
+      <tr><td>Aldehyde vs Ketone</td><td>Tollens'</td><td class="pos">Aldehyde: Silver mirror</td><td class="neg">Ketone: No mirror</td></tr>
+      <tr><td>Aliphatic vs Aromatic aldehyde</td><td>Fehling's</td><td class="pos">Aliphatic: Brick-red Cu₂O</td><td class="neg">Aromatic (PhCHO): No change</td></tr>
+      <tr><td>CH₃CHO vs CH₃COCH₃</td><td>Tollens'</td><td class="pos">CH₃CHO: Silver mirror</td><td class="neg">Acetone: No mirror</td></tr>
+      <tr><td>HCHO vs CH₃CHO</td><td>Iodoform</td><td class="neg">HCHO: –ve (no CHI₃)</td><td class="pos">CH₃CHO: Yellow CHI₃ ppt</td></tr>
+      <tr><td>Glucose vs Sucrose</td><td>Fehling's / Tollens'</td><td class="pos">Glucose: Brick-red ppt</td><td class="neg">Sucrose: No change</td></tr>
+      <tr><td>EtOH vs MeOH</td><td>Iodoform</td><td class="pos">EtOH: Yellow CHI₃ ppt</td><td class="neg">MeOH: No yellow ppt</td></tr>
+      <tr><td>1°/2°/3° Alcohol</td><td>Victor Meyer</td><td class="pos">1° → Blood-red; 2° → Blue</td><td class="neg">3° → Colourless</td></tr>
+      <tr><td>HCOOH vs CH₃COOH</td><td>Tollens'</td><td class="pos">HCOOH: Silver mirror</td><td class="neg">CH₃COOH: No mirror</td></tr>
+      <tr><td>Terminal alkyne vs Aldehyde</td><td>Tollens' (observe)</td><td class="cond">Alkyne: White ppt (acetylide)</td><td class="pos">Aldehyde: Silver mirror</td></tr>
+      <tr><td>PhCOCH₃ vs PhCHO</td><td>Tollens' + Iodoform</td><td class="neg">PhCOCH₃: –ve Tollens', +ve iodoform</td><td class="pos">PhCHO: +ve Tollens', –ve iodoform</td></tr>
+    </tbody>
+  </table>
+</div>
+
+
+</div><!-- end tab-matrix -->
+<!-- ═══════════════════ TAB 3: FLASHCARDS ═══════════════════ -->
+<div id="tab-flashcards" class="tab-content">
+<div class="page-header">
+  <div class="subject-tag">Active Recall · Spaced Repetition</div>
+  <h1>🃏 <span>Flashcard Mode</span></h1>
+  <div class="subtitle">Click card to flip · Rate yourself · Track progress · Add your own cards</div>
+</div>
+<div class="qctrl">
+  <label>Deck:</label>
+  <select class="qsel" id="deckSel" onchange="loadDeck()">
+    <option value="all">All Topics</option>
+    <option value="tollens">Tollens' Test</option>
+    <option value="fehling">Fehling's / Benedict's</option>
+    <option value="iodoform">Iodoform Test</option>
+    <option value="victor">Victor Meyer Test</option>
+    <option value="exceptions">Exceptions &amp; Traps ⭐</option>
+    <option value="cannizzaro">Cannizzaro Reaction</option>
+    <option value="reimertiemann">Reimer-Tiemann</option>
+    <option value="pinacol">Pinacol Rearrangement</option>
+    <option value="custom">My Custom Cards</option>
+  </select>
+  <button class="qbtn secondary" onclick="shuffleDeck()">🔀 Shuffle</button>
+  <button class="qbtn primary" onclick="loadDeck()">↺ Restart</button>
+  <div style="margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--dim)" id="deckInfo"></div>
+</div>
+<div class="score-bar">
+  <div class="si"><div class="sdot" style="background:var(--green)"></div><span id="fc-got" style="color:var(--green);font-weight:600">0</span>&nbsp;Got it</div>
+  <div class="si"><div class="sdot" style="background:var(--red)"></div><span id="fc-again" style="color:var(--red);font-weight:600">0</span>&nbsp;Again</div>
+  <div class="si"><div class="sdot" style="background:var(--dim)"></div><span id="fc-rem" style="color:var(--muted)">—</span>&nbsp;Remaining</div>
+</div>
+<div class="prog-wrap"><div class="prog-bar" id="fc-prog" style="width:0%"></div></div>
+<div style="text-align:center;font-family:var(--mono);font-size:11px;color:var(--dim);margin-bottom:12px" id="fc-ctr">Card 1 of —</div>
+<div class="fc-wrap" onclick="flipCard()" id="fcWrap">
+  <div class="fc" id="fc">
+    <div class="cface cfront">
+      <div class="ctag" id="fc-cat">— category —</div>
+      <div class="cq" id="fc-q">Loading...</div>
+      <div class="fhint">Click to reveal answer</div>
+    </div>
+    <div class="cface cback">
+      <div class="ctag">Answer</div>
+      <div class="ca" id="fc-a">—</div>
+      <div class="fhint">Rate yourself below</div>
+    </div>
+  </div>
+</div>
+<div class="cactions" id="fc-acts" style="display:none">
+  <button class="btn-again" onclick="rateCard('again')">✗ Study Again</button>
+  <button class="btn-skip" onclick="rateCard('skip')">→ Skip</button>
+  <button class="btn-got" onclick="rateCard('got')">✓ Got It!</button>
+</div>
+<div id="fc-done" style="display:none;text-align:center;padding:28px">
+  <div style="font-size:34px;margin-bottom:10px">🎉</div>
+  <div style="font-size:18px;font-weight:700;margin-bottom:7px">Deck Complete!</div>
+  <div style="font-size:13px;color:var(--muted);margin-bottom:18px" id="fc-done-stats"></div>
+  <button class="qbtn primary" onclick="loadDeck()" style="margin-right:7px">Restart Deck</button>
+  <button class="qbtn secondary" onclick="reviewMissed()">Review Missed</button>
+</div>
+
+<!-- ADD CUSTOM FLASHCARD -->
+<div style="margin-top:24px">
+  <div class="editor-panel">
+    <h3><span style="color:var(--green)">＋</span> Add Custom Flashcard</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Category / Topic</label>
+        <select class="form-select" id="fc-new-cat">
+          <option value="Custom">Custom</option>
+          <option value="Tollens'">Tollens'</option>
+          <option value="Fehling's">Fehling's</option>
+          <option value="Iodoform">Iodoform</option>
+          <option value="Victor Meyer">Victor Meyer</option>
+          <option value="Exception">Exception</option>
+        </select>
+      </div>
+      <div></div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Question (front of card)</label>
+      <textarea class="form-textarea" id="fc-new-q" placeholder="e.g. Which compound gives positive iodoform but negative Tollens' test?"></textarea>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Answer (back of card)</label>
+      <textarea class="form-textarea" id="fc-new-a" placeholder="e.g. Acetone — it has CH₃CO– group (methyl ketone) but no aldehyde group..."></textarea>
+    </div>
+    <button class="qbtn green" onclick="addCustomCard()">＋ Add Flashcard</button>
+    <span id="fc-add-msg" style="font-size:12px;color:var(--green);margin-left:10px;display:none">✓ Card added!</span>
+  </div>
+</div>
+
+
+</div><!-- end tab-flashcards -->
+
+<!-- ═══════════════════ TAB 4: MCQ ═══════════════════ -->
+<div id="tab-mcq" class="tab-content">
+<div class="page-header">
+  <div class="subject-tag">JEE-Style MCQ Practice</div>
+  <h1>✏️ <span>MCQ Quiz Mode</span></h1>
+  <div class="subtitle">Instant feedback · Explanations · Score tracking · Add your own questions</div>
+</div>
+<div class="tabs-sub" id="mcq-subtabs">
+  <button class="sub-tab active" onclick="showMCQSub('practice')">Practice Quiz</button>
+  <button class="sub-tab" onclick="showMCQSub('manage')">Manage Questions <span class="count-badge" id="mcq-count-badge">0</span></button>
+</div>
+
+<div id="mcq-sub-practice">
+  <div id="mcq-setup">
+    <div class="qctrl">
+      <label>Topic:</label>
+      <select class="qsel" id="mcq-topic">
+        <option value="all">All Topics</option>
+        <option value="tollens">Tollens'</option>
+        <option value="fehling">Fehling's/Benedict's</option>
+        <option value="iodoform">Iodoform</option>
+        <option value="victor">Victor Meyer</option>
+        <option value="exceptions">Exceptions ⭐</option>
+        <option value="custom">My Questions</option>
+      </select>
+      <label>Count:</label>
+      <select class="qsel" id="mcq-num">
+        <option value="5">5</option>
+        <option value="10" selected>10</option>
+        <option value="15">15</option>
+        <option value="all">All</option>
+      </select>
+      <button class="qbtn primary" onclick="startMCQ()">Start Quiz →</button>
+    </div>
+  </div>
+  <div id="mcq-main" style="display:none">
+    <div class="score-bar">
+      <div class="si"><div class="sdot" style="background:var(--green)"></div><span id="mcq-corr" style="color:var(--green);font-weight:600">0</span>&nbsp;Correct</div>
+      <div class="si"><div class="sdot" style="background:var(--red)"></div><span id="mcq-wrng" style="color:var(--red);font-weight:600">0</span>&nbsp;Wrong</div>
+      <div style="margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--dim)" id="mcq-plbl">Q 1 of —</div>
+    </div>
+    <div class="prog-wrap"><div class="prog-bar" id="mcq-prog" style="width:0%"></div></div>
+    <div class="mcq-wrap">
+      <div class="mcq-qbox">
+        <div class="mcq-qtext" id="mcq-qtext">—</div>
+        <div class="mcq-opts" id="mcq-opts"></div>
+        <div class="mcq-exp" id="mcq-exp"></div>
+      </div>
+      <div class="mcq-nav">
+        <button class="qbtn secondary" onclick="prevMCQ()" id="mcq-prev" style="display:none">← Prev</button>
+        <button class="qbtn primary" onclick="nextMCQ()" id="mcq-next" style="display:none">Next →</button>
+        <button class="qbtn green" onclick="finishMCQ()" id="mcq-finish" style="display:none">Finish ✓</button>
+      </div>
+    </div>
+  </div>
+  <div class="results-screen" id="mcq-results">
+    <div class="subject-tag">Quiz Complete</div>
+    <div class="res-pct" id="res-pct">—%</div>
+    <div class="res-lbl" id="res-msg">—</div>
+    <div class="res-breakdown">
+      <div class="rb"><div class="rb-num" style="color:var(--green)" id="rb-c">0</div><div class="rb-lbl">CORRECT</div></div>
+      <div class="rb"><div class="rb-num" style="color:var(--red)" id="rb-w">0</div><div class="rb-lbl">WRONG</div></div>
+      <div class="rb"><div class="rb-num" style="color:var(--blue)" id="rb-t">0</div><div class="rb-lbl">TOTAL</div></div>
+    </div>
+    <button class="qbtn primary" onclick="retakeMCQ()" style="margin-right:7px">Retake</button>
+    <button class="qbtn secondary" onclick="showTab('notes')">Back to Notes</button>
+  </div>
+</div>
+
+<div id="mcq-sub-manage" style="display:none">
+  <div class="editor-panel">
+    <h3><span style="color:var(--green)">＋</span> Add New MCQ Question</h3>
+    <div class="form-group">
+      <label class="form-label">Question Text</label>
+      <textarea class="form-textarea" id="mcq-new-q" placeholder="Type or paste your MCQ question here..."></textarea>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Topic</label>
+      <select class="form-select" id="mcq-new-topic" style="max-width:260px">
+        <option value="custom">Custom</option>
+        <option value="tollens">Tollens'</option>
+        <option value="fehling">Fehling's</option>
+        <option value="iodoform">Iodoform</option>
+        <option value="victor">Victor Meyer</option>
+        <option value="exceptions">Exceptions</option>
+      </select>
+    </div>
+    <div style="margin-bottom:8px;font-size:11.5px;color:var(--muted);font-family:var(--mono)">Options (select the correct answer using the radio button):</div>
+    <div id="mcq-new-opts">
+      <div class="opt-row"><span class="opt-label">A</span><input class="form-input" placeholder="Option A" id="opt-0"></div>
+      <div class="opt-row"><span class="opt-label">B</span><input class="form-input" placeholder="Option B" id="opt-1"></div>
+      <div class="opt-row"><span class="opt-label">C</span><input class="form-input" placeholder="Option C" id="opt-2"></div>
+      <div class="opt-row"><span class="opt-label">D</span><input class="form-input" placeholder="Option D" id="opt-3"></div>
+    </div>
+    <div style="margin:10px 0;display:flex;gap:18px;flex-wrap:wrap">
+      <label class="radio-correct"><input type="radio" name="correct-opt" value="0"> A is correct</label>
+      <label class="radio-correct"><input type="radio" name="correct-opt" value="1"> B is correct</label>
+      <label class="radio-correct"><input type="radio" name="correct-opt" value="2"> C is correct</label>
+      <label class="radio-correct"><input type="radio" name="correct-opt" value="3"> D is correct</label>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Explanation (shown after answering)</label>
+      <textarea class="form-textarea" id="mcq-new-exp" placeholder="Explain why the correct answer is right..."></textarea>
+    </div>
+    <button class="qbtn green" onclick="addMCQ()">＋ Add Question</button>
+    <span id="mcq-add-msg" style="font-size:12px;color:var(--green);margin-left:10px;display:none">✓ Added!</span>
+  </div>
+  <div class="editor-panel">
+    <h3>All Questions <span id="mcq-list-count" class="count-badge">0</span></h3>
+    <div id="mcq-list" class="item-list"></div>
+  </div>
+</div>
+
+
+</div><!-- end tab-mcq -->
+
+<!-- ═══════════════════ TAB 5: NUMERICAL ═══════════════════ -->
+<div id="tab-numerical" class="tab-content">
+<div class="page-header">
+  <div class="subject-tag">JEE-Style Numerical Answer Type</div>
+  <h1>🔢 <span>Numerical Questions</span></h1>
+  <div class="subtitle">Type or paste question · Enter answer in the box · Just like JEE</div>
+</div>
+<div class="tabs-sub">
+  <button class="sub-tab active" onclick="showNumSub('practice')">Practice</button>
+  <button class="sub-tab" onclick="showNumSub('manage')">Manage Questions <span class="count-badge" id="num-count-badge">0</span></button>
+</div>
+
+<div id="num-sub-practice">
+  <div id="num-setup">
+    <div class="qctrl">
+      <label>Topic:</label>
+      <select class="qsel" id="num-topic">
+        <option value="all">All</option>
+        <option value="tollens">Tollens'</option>
+        <option value="fehling">Fehling's</option>
+        <option value="iodoform">Iodoform</option>
+        <option value="custom">My Questions</option>
+      </select>
+      <button class="qbtn primary" onclick="startNum()">Start →</button>
+    </div>
+  </div>
+  <div id="num-main" style="display:none">
+    <div class="score-bar">
+      <div class="si"><div class="sdot" style="background:var(--green)"></div><span id="num-corr" style="color:var(--green);font-weight:600">0</span>&nbsp;Correct</div>
+      <div class="si"><div class="sdot" style="background:var(--red)"></div><span id="num-wrng" style="color:var(--red);font-weight:600">0</span>&nbsp;Wrong</div>
+      <div style="margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--dim)" id="num-plbl">Q 1 of —</div>
+    </div>
+    <div class="prog-wrap"><div class="prog-bar" id="num-prog" style="width:0%"></div></div>
+    <div class="num-wrap">
+      <div class="num-qbox">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--dim);margin-bottom:8px;letter-spacing:.08em" id="num-qtag">— NUMERICAL ANSWER TYPE —</div>
+        <div class="num-qtext" id="num-qtext">—</div>
+        <div class="num-input-row">
+          <input class="num-input" type="number" id="num-ans-input" placeholder="0" step="1">
+          <button class="qbtn primary" onclick="submitNum()">Submit Answer</button>
+          <button class="qbtn secondary" onclick="showNumHint()" id="num-hint-btn">Show Hint</button>
+        </div>
+        <div class="num-result" id="num-result"></div>
+        <div id="num-hint-box" style="display:none;margin-top:10px;padding:9px 13px;background:var(--amber-glow);border:1px solid rgba(244,200,66,.25);border-radius:7px;font-size:12px;color:#f4e08a" id="num-hint-disp"></div>
+      </div>
+      <div class="mcq-nav" style="margin-top:0">
+        <button class="qbtn secondary" onclick="prevNum()" id="num-prev" style="display:none">← Prev</button>
+        <button class="qbtn primary" onclick="nextNum()" id="num-next" style="display:none">Next →</button>
+        <button class="qbtn green" onclick="finishNum()" id="num-finish" style="display:none">Finish ✓</button>
+      </div>
+    </div>
+  </div>
+  <div class="results-screen" id="num-results">
+    <div class="subject-tag">Numerical Quiz Complete</div>
+    <div class="res-pct" id="num-res-pct">—%</div>
+    <div class="res-lbl" id="num-res-msg">—</div>
+    <div class="res-breakdown">
+      <div class="rb"><div class="rb-num" style="color:var(--green)" id="nrb-c">0</div><div class="rb-lbl">CORRECT</div></div>
+      <div class="rb"><div class="rb-num" style="color:var(--red)" id="nrb-w">0</div><div class="rb-lbl">WRONG</div></div>
+      <div class="rb"><div class="rb-num" style="color:var(--blue)" id="nrb-t">0</div><div class="rb-lbl">TOTAL</div></div>
+    </div>
+    <button class="qbtn primary" onclick="retakeNum()" style="margin-right:7px">Retake</button>
+    <button class="qbtn secondary" onclick="showTab('notes')">Back to Notes</button>
+  </div>
+</div>
+
+<div id="num-sub-manage" style="display:none">
+  <div class="editor-panel">
+    <h3><span style="color:var(--green)">＋</span> Add Numerical Question</h3>
+    <div class="form-group">
+      <label class="form-label">Question Text (type or paste)</label>
+      <textarea class="form-textarea" style="min-height:90px" id="num-new-q" placeholder="e.g. How many of the following compounds give a positive iodoform test? Acetone, HCHO, CH₃CH₂OH, PhCOCH₃, CH₃OH, (CH₃)₂CHOH"></textarea>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Correct Answer (integer or decimal)</label>
+        <input class="form-input" type="number" id="num-new-ans" placeholder="e.g. 4" step="any">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Topic</label>
+        <select class="form-select" id="num-new-topic">
+          <option value="custom">Custom</option>
+          <option value="tollens">Tollens'</option>
+          <option value="fehling">Fehling's</option>
+          <option value="iodoform">Iodoform</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Hint (optional — shown on request)</label>
+      <input class="form-input" id="num-new-hint" placeholder="e.g. Count only CH₃CO– group compounds...">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Explanation (shown after answering)</label>
+      <textarea class="form-textarea" id="num-new-exp" placeholder="Full explanation after answer is submitted..."></textarea>
+    </div>
+    <button class="qbtn green" onclick="addNum()">＋ Add Question</button>
+    <span id="num-add-msg" style="font-size:12px;color:var(--green);margin-left:10px;display:none">✓ Added!</span>
+  </div>
+  <div class="editor-panel">
+    <h3>All Numerical Questions <span id="num-list-count" class="count-badge">0</span></h3>
+    <div id="num-list" class="item-list"></div>
+  </div>
+</div>
+
+
+</div><!-- end tab-numerical -->
+
+<!-- ═══════════════════ TAB 6: MANAGE (unused placeholder, redirect to sub-tabs) ═══════════════════ -->
+<div id="tab-manage" class="tab-content">
+<div class="page-header">
+  <div class="subject-tag">Content Management</div>
+  <h1>⚙️ <span>Manage Your Content</span></h1>
+  <div class="subtitle">Add / delete flashcards, MCQs, and numerical questions</div>
+</div>
+<div class="grid-3">
+  <div class="card accent-green" style="cursor:pointer" onclick="showTab('flashcards');setTimeout(()=>document.getElementById('fc-new-q').focus(),300)">
+    <div class="card-title"><span class="dot dot-green"></span>Flashcards</div>
+    <div style="font-size:12.5px;color:var(--muted)">Add your own flip cards. Goes into the "My Custom Cards" deck.</div>
+    <div style="margin-top:10px"><button class="qbtn green sm">Go to Flashcards →</button></div>
+  </div>
+  <div class="card accent-purple" style="cursor:pointer" onclick="showTab('mcq');showMCQSub('manage')">
+    <div class="card-title"><span class="dot dot-purple"></span>MCQ Questions</div>
+    <div style="font-size:12.5px;color:var(--muted)">Add 4-option multiple choice questions with explanations. Can delete built-in ones too.</div>
+    <div style="margin-top:10px"><button class="qbtn primary sm">Go to MCQ →</button></div>
+  </div>
+  <div class="card accent-amber" style="cursor:pointer" onclick="showTab('numerical');showNumSub('manage')">
+    <div class="card-title"><span class="dot dot-amber"></span>Numerical Questions</div>
+    <div style="font-size:12.5px;color:var(--muted)">Add integer/decimal answer questions like JEE. Type question, set answer, add hint.</div>
+    <div style="margin-top:10px"><button class="qbtn amber sm">Go to Numerical →</button></div>
+  </div>
+</div>
+
+</div><!-- end tab-manage -->
+<div class="page-footer">JEE MAINS &amp; ADVANCED · CHEMICAL TESTS MASTER REFERENCE · 2026–27</div>
+<script>
+// ════════════════════════════════════════════════════════
+// TAB SYSTEM
+// ════════════════════════════════════════════════════════
+function showTab(id){
+  ['notes','matrix','flashcards','mcq','numerical','manage'].forEach(function(t){
+    var el=document.getElementById('tab-'+t);
+    if(el){el.classList.remove('active');el.style.cssText='display:none !important;visibility:hidden;height:0;overflow:hidden;padding:0';}
+  });
+  document.querySelectorAll('.nav-btn').forEach(function(b){b.classList.remove('active');});
+  var el=document.getElementById('tab-'+id);
+  if(el){el.classList.add('active');el.style.cssText='display:block !important;visibility:visible;height:auto;overflow:visible;padding:24px 20px';}
+  var map={notes:0,matrix:1,flashcards:2,mcq:3,numerical:4,manage:5};
+  document.querySelectorAll('.nav-btn')[map[id]].classList.add('active');
+  window.scrollTo(0,0);
+}
+function showMCQSub(sub){
+  document.getElementById('mcq-sub-practice').style.display=sub==='practice'?'block':'none';
+  document.getElementById('mcq-sub-manage').style.display=sub==='manage'?'block':'none';
+  document.querySelectorAll('#mcq-subtabs .sub-tab').forEach((b,i)=>b.classList.toggle('active',i===(sub==='practice'?0:1)));
+  if(sub==='manage') renderMCQList();
+}
+function showNumSub(sub){
+  document.getElementById('num-sub-practice').style.display=sub==='practice'?'block':'none';
+  document.getElementById('num-sub-manage').style.display=sub==='manage'?'block':'none';
+  document.querySelectorAll('#tab-numerical .sub-tab').forEach((b,i)=>b.classList.toggle('active',i===(sub==='practice'?0:1)));
+  if(sub==='manage') renderNumList();
+}
+
+// ════════════════════════════════════════════════════════
+// BUILT-IN FLASHCARD DATA
+// ════════════════════════════════════════════════════════
+const builtinCards=[
+  {cat:"Tollens'",q:"What is Tollens' reagent and what is the positive observation?",a:'<span class="hl">Reagent:</span> [Ag(NH₃)₂]⁺OH⁻ (ammoniacal AgNO₃, freshly prepared).<br><span class="gl">Positive:</span> Silver mirror on inner wall of test tube.',deck:'tollens',builtin:true},
+  {cat:"Tollens'",q:"Does benzaldehyde (PhCHO) give Tollens' test?",a:'<span class="gl">YES ✓</span> — all aldehydes (aliphatic AND aromatic) give +ve Tollens\'. Silver mirror formed.',deck:'tollens',builtin:true},
+  {cat:"Tollens'",q:"Why does formic acid (HCOOH) give positive Tollens' test?",a:'HCOOH structure is H–C(=O)–OH — it contains a <span class="hl">masked –CHO group</span>. Can reduce Ag⁺. Unique among carboxylic acids — no other common acid passes.',deck:'tollens',builtin:true},
+  {cat:"Tollens'",q:"Terminal alkyne RC≡CH + Tollens' reagent → what forms?",a:'<span class="rl">WHITE PRECIPITATE</span> of silver acetylide (RC≡CAg) — NOT a silver mirror! Tests terminal C–H acidity (pKa≈25), not reducing ability. Classic JEE trap.',deck:'tollens',builtin:true},
+  {cat:"Tollens'",q:"Which compounds give positive Tollens' test? (List all major types)",a:'✓ All aliphatic aldehydes (HCHO, CH₃CHO, etc.)<br>✓ All aromatic aldehydes (PhCHO)<br>✓ HCOOH (formic acid) only<br>✓ Glucose, fructose, maltose, lactose<br>✗ Ketones, sucrose, alcohols, other acids',deck:'tollens',builtin:true},
+  {cat:"Fehling's",q:"What is in Fehling's Solution A and B? Why mix separately?",a:'<span class="hl">A:</span> CuSO₄(aq).<br><span class="hl">B:</span> Sodium potassium tartrate (Rochelle salt) + NaOH.<br>Mixed 1:1 before use — tartrate complexes Cu²⁺ to prevent Cu(OH)₂ precipitation and keep Cu²⁺ in solution.',deck:'fehling',builtin:true},
+  {cat:"Fehling's",q:"Does benzaldehyde give Fehling's test?",a:'<span class="rl">NO ✗</span> — aromatic aldehydes FAIL Fehling\'s. Aromatic ring reduces reactivity of –CHO toward Cu²⁺ complex. ⭐ Key JEE distinction: PhCHO = +ve Tollens\', –ve Fehling\'s.',deck:'fehling',builtin:true},
+  {cat:"Fehling's",q:"What is the positive observation for Fehling's test?",a:'<span class="gl">Brick-red Cu₂O precipitate</span> forms. Solution changes from deep blue (Cu²⁺ complex) → green → brick-red. Cu²⁺ reduced to Cu⁺ (Cu₂O).',deck:'fehling',builtin:true},
+  {cat:"Fehling's",q:"Why does fructose give positive Fehling's despite being a ketone?",a:'In hot alkaline Fehling\'s, fructose undergoes <span class="hl">Lobry de Bruyn–van Ekenstein transformation</span> — enediol tautomerism converts it partially to glucose (aldohexose), which then reduces Cu²⁺. Sucrose does NOT do this (acetal bond locked).',deck:'fehling',builtin:true},
+  {cat:"Fehling's",q:"How is Benedict's different from Fehling's?",a:'Same chemical outcome (same +ve/–ve list).<br><span class="hl">Benedict\'s uses sodium citrate</span> (more stable). Single-bottle solution. More sensitive. Used clinically for urine glucose. Fehling\'s requires fresh mixing of A+B.',deck:'fehling',builtin:true},
+  {cat:'Iodoform',q:"What is the structural requirement for a positive iodoform test?",a:'Must have <span class="hl">CH₃CO–R</span> (methyl ketone) OR <span class="hl">CH₃CH(OH)–R</span> (methyl secondary carbinol/alcohol).<br>Mnemonic: <span class="al">MACE</span> — Methyl ketones, Acetaldehyde only, Carbinols (methyl), Ethanol only.',deck:'iodoform',builtin:true},
+  {cat:'Iodoform',q:"Which is the ONLY aldehyde that gives positive iodoform test?",a:'<span class="hl">Acetaldehyde (CH₃CHO)</span> — it has CH₃CO– group.<br>HCHO = NEGATIVE (no CH₃CO–).<br>PhCHO = NEGATIVE.<br>Propanal, butanal = NEGATIVE.',deck:'iodoform',builtin:true},
+  {cat:'Iodoform',q:"Does acetophenone (PhCOCH₃) give iodoform test?",a:'<span class="gl">YES ✓ ⭐</span> — Acetophenone has a <span class="hl">CH₃CO–</span> group attached to phenyl. Gives yellow CHI₃ precipitate. One of the MOST frequently tested facts in JEE.',deck:'iodoform',builtin:true},
+  {cat:'Iodoform',q:"Ethanol gives iodoform. Methanol does not. Why?",a:'<span class="gl">Ethanol:</span> NaOH/I₂ first oxidizes EtOH → CH₃CHO → iodoform (CH₃CO– formed).<br><span class="rl">Methanol:</span> Oxidizes → HCHO only (no CH₃CO– group possible) → negative iodoform.',deck:'iodoform',builtin:true},
+  {cat:'Iodoform',q:"Write the 4-step mechanism for iodoform reaction",a:'1. <span class="hl">α-Deprotonation:</span> NaOH removes α-H from CH₃<br>2. <span class="hl">Halogenation ×3:</span> Carbanion + I₂ × 3 → CI₃CO–R<br>3. <span class="hl">OH⁻ addition:</span> Attacks carbonyl of CI₃CO–R<br>4. <span class="hl">CI₃⁻ leaves:</span> Good leaving group → CHI₃↓ + RCOONa',deck:'iodoform',builtin:true},
+  {cat:'Victor Meyer',q:"What is the purpose and basis of Victor Meyer test?",a:'<b>Purpose:</b> Classify 1°, 2°, 3° alcohols.<br><b>Basis:</b> Different behaviour of primary, secondary, tertiary nitroalkanes with HNO₂ (nitrous acid) — depends on presence/absence of α-H.',deck:'victor',builtin:true},
+  {cat:'Victor Meyer',q:"State the 4 steps of Victor Meyer test in order",a:'1. R–OH + P/I₂ → <span class="hl">R–I</span><br>2. R–I + AgNO₂ → <span class="hl">R–NO₂</span> + AgI↓<br>3. R–NO₂ + HNO₂ (NaNO₂+HCl) → observe<br>4. Add KOH → confirm colour',deck:'victor',builtin:true},
+  {cat:'Victor Meyer',q:"Victor Meyer colour results for 1°, 2°, 3° alcohols",a:'<span class="rl">1° → Blood-Red</span> (nitrolic acid, in KOH; colourless on acidification)<br><span class="hl">2° → Blue</span> (pseudonitrole; disappears on heating)<br><span class="al">3° → Colourless</span> (no reaction with HNO₂ — no α-H)<br>Mnemonic: <span class="gl">RBT — Red, Blue, Transparent</span>',deck:'victor',builtin:true},
+  {cat:'Victor Meyer',q:"Why does tertiary alcohol give no colour in Victor Meyer test?",a:'Tertiary nitroalkane R₃C–NO₂ has <span class="hl">no α-hydrogen</span>. HNO₂ cannot abstract an α-H → no tautomer/isoform possible → no coloured product formed.',deck:'victor',builtin:true},
+  {cat:'Victor Meyer',q:"What are the products in Victor Meyer test for 1° and 2° alcohols?",a:'<span class="rl">1° → Nitrolic acid</span>: R–C(=NOH)–NO₂ (red K-salt in base; colourless in acid)<br><span class="hl">2° → Pseudonitrole</span>: R₂C(NO)(NO₂) (blue; nitroso chromophore –N=O responsible for colour; disappears on heating)',deck:'victor',builtin:true},
+  {cat:'Exception',q:"Acetaldehyde is unique — what tests does it give?",a:'CH₃CHO is the <span class="gl">ONLY compound giving ALL THREE</span>:<br>✓ +ve Tollens\' (it\'s an aldehyde)<br>✓ +ve Fehling\'s (aliphatic aldehyde)<br>✓ +ve Iodoform (has CH₃CO– group)<br>Extremely high-yield JEE fact.',deck:'exceptions',builtin:true},
+  {cat:'Exception',q:"Why does sucrose fail ALL identification tests?",a:'Sucrose is a <span class="hl">non-reducing disaccharide</span>. The glycosidic bond links C-1 (α-glucose) to C-2 (β-fructose), <span class="rl">locking both anomeric carbons</span> — no free –CHO group available. Cannot tautomerize. Fails Tollens\', Fehling\'s, iodoform.',deck:'exceptions',builtin:true},
+  {cat:'Exception',q:"How to distinguish PhCHO from CH₃CHO using tests?",a:'Both give +ve Tollens\' (silver mirror).<br>Use <span class="hl">Fehling\'s test</span>: CH₃CHO = +ve brick-red; PhCHO = NEGATIVE.<br>Use <span class="hl">iodoform</span>: CH₃CHO = +ve yellow; PhCHO = NEGATIVE.',deck:'exceptions',builtin:true},
+  {cat:'Exception',q:"How to distinguish EtOH from MeOH using one test?",a:'<span class="hl">Iodoform test</span>: EtOH gives <span class="gl">+ve yellow CHI₃</span> precipitate (oxidized → CH₃CHO → CHI₃). MeOH gives <span class="rl">negative</span> (oxidized → HCHO — no CH₃CO– group).',deck:'exceptions',builtin:true},
+  {cat:'Exception',q:"Mnemonic for iodoform positive compounds?",a:'<span class="hl">MACE:</span><br>M = Methyl ketones (CH₃CO–R)<br>A = Acetaldehyde only (no other aldehyde)<br>C = Carbinols (CH₃CH(OH)–R, methyl secondary)<br>E = Ethanol only (not methanol, not 1-propanol)',deck:'exceptions',builtin:true},
+
+  {cat:"Cannizzaro",q:"What is the structural requirement for Cannizzaro reaction?",a:'Must have <span class=\"hl\">NO α-hydrogen</span>. Examples: HCHO, PhCHO, pivaldehyde, furfural. Aldehydes WITH α-H (CH₃CHO, propanal) do aldol condensation instead.',deck:'cannizzaro',builtin:true},
+  {cat:"Cannizzaro",q:"Rate law and RDS for Cannizzaro reaction?",a:'Rate = k<span class=\"hl\">[RCHO]²[OH⁻]</span>. 2nd order in aldehyde, 1st order in OH⁻. RDS = hydride H⁻ transfer (step 2) from alkoxide to second aldehyde molecule.',deck:'cannizzaro',builtin:true},
+  {cat:"Cannizzaro",q:"Cross-Cannizzaro: HCHO + PhCHO + NaOH → what products?",a:'<span class=\"rl\">HCHO is ALWAYS oxidized</span> → HCOONa.<br><span class=\"gl\">PhCHO is reduced</span> → PhCH₂OH (benzyl alcohol). HCHO is always the reductant — never the other way.',deck:'cannizzaro',builtin:true},
+  {cat:"Cannizzaro",q:"Intramolecular Cannizzaro — key example?",a:'<span class=\"hl\">Glyoxal (OHC–CHO)</span> + NaOH → sodium glycolate (HOCH₂COO⁻). One –CHO oxidized, other reduced within the same molecule.',deck:'cannizzaro',builtin:true},
+  {cat:"Cannizzaro",q:"EWG vs EDG effect on Cannizzaro rate?",a:'<span class=\"gl\">EWG (p-NO₂) → FASTER</span>: more electrophilic C=O → faster OH⁻ attack.<br><span class=\"rl\">EDG (p-OCH₃) → SLOWER</span>: less electrophilic C=O → slower OH⁻ attack.',deck:'cannizzaro',builtin:true},
+  {cat:"Cannizzaro",q:"¹⁸O isotope labelling: where does ¹⁸O end up after Cannizzaro?",a:'<span class=\"hl\">In the CARBOXYLATE (RCOO⁻)</span> — the C=¹⁸O of the oxidized molecule becomes C–¹⁸OO⁻. The OH⁻ oxygen goes into the alcohol product.',deck:'cannizzaro',builtin:true},
+  {cat:"Reimer-Tiemann",q:"What is the reactive intermediate in Reimer-Tiemann? How formed?",a:'<span class=\"hl\">:CCl₂ (dichlorocarbene)</span>. CHCl₃ + NaOH → CCl₃⁻ → :CCl₂ + Cl⁻ by α-elimination. :CCl₂ is the actual electrophile attacking the ring, NOT CHCl₃ itself.',deck:'reimertiemann',builtin:true},
+  {cat:"Reimer-Tiemann",q:"Major product of Reimer-Tiemann on phenol and regiochemistry?",a:'Major: <span class=\"hl\">Salicylaldehyde</span> (2-OH-benzaldehyde) — ortho product. Ortho major because :CCl₂ is guided by proximity to phenoxide oxygen. Minor: para product.',deck:'reimertiemann',builtin:true},
+  {cat:"Reimer-Tiemann",q:"What is Abnormal Reimer-Tiemann? When does it occur?",a:'Occurs when <span class=\"hl\">BOTH ortho positions are blocked</span>. :CCl₂ attacks C-1 (ipso) → rearranges to <span class=\"rl\">2,2-dichlorocyclohexadienone</span>. NO –CHO formed. Completely different from normal R-T product.',deck:'reimertiemann',builtin:true},
+  {cat:"Reimer-Tiemann",q:"Reimer-Tiemann vs Kolbe-Schmitt: what do they give from phenol?",a:'R-T (CHCl₃ + NaOH): → <span class=\"hl\">salicylaldehyde</span> (–CHO).<br>Kolbe-Schmitt (CO₂ + NaOH, pressure): → <span class=\"hl\">salicylate</span> (–COO⁻). Products differ by one oxidation level.',deck:'reimertiemann',builtin:true},
+  {cat:"Pinacol",q:"Migratory aptitude order for pinacol-pinacolone rearrangement?",a:'<span class=\"hl\">Aryl > Vinyl > tert-Alkyl > sec-Alkyl > H > Methyl > n-Alkyl</span><br>Mnemonic: <span class=\"al\">"All Very Tired Students Have Massive Notes"</span>',deck:'pinacol',builtin:true},
+  {cat:"Pinacol",q:"Why NO crossover products in pinacol rearrangement?",a:'Migration is <span class=\"hl\">strictly intramolecular</span>. The migrating group never becomes free. Proved by crossover experiments with labeled diols → ZERO exchange between molecules. Confirms concerted 1,2-intramolecular shift.',deck:'pinacol',builtin:true},
+  {cat:"Pinacol",q:"What is Semi-Pinacol rearrangement?",a:'Only ONE –OH present; adjacent C has another leaving group (halide, tosylate) or strained ring. 1,2-migration still gives ketone/aldehyde. Key use: <span class=\"hl\">ring expansion or contraction</span>. E.g. cyclopentane + adjacent –X → cyclohexanone.',deck:'pinacol',builtin:true},
+  {cat:"Pinacol",q:"trans-Cyclohexane-1,2-diol + H⁺ → what product and why?",a:'→ <span class=\"hl\">Cyclohexanone</span>. One OH leaves → C⁺ → the C–C bond anti-periplanar to the leaving OH migrates → cyclohexanone. cis-diol gives different product because the anti-periplanar bond is different. Draw Newman projection to confirm.',deck:'pinacol',builtin:true},
+  {cat:"Pinacol",q:"In unsymmetrical diol, how do you determine which OH leaves and what migrates?",a:'1. The OH giving the <span class=\"hl\">more stable carbocation</span> leaves first.<br>2. The group with <span class=\"hl\">highest migratory aptitude</span> on the adjacent carbon (bearing –OH) migrates. Aryl always wins over alkyl over H.',deck:'pinacol',builtin:true},
+];
+
+let customCards=[];
+let fcDeck=[], fcIdx=0, fcGot=0, fcAgain=0, fcFlipped=false, missedCards=[];
+
+function getAllCards(filter){
+  const all=[...builtinCards,...customCards];
+  if(filter==='all') return all;
+  if(filter==='custom') return customCards;
+  return all.filter(c=>c.deck&&c.deck.includes(filter));
+}
+
+function loadDeck(){
+  const sel=document.getElementById('deckSel').value;
+  fcDeck=getAllCards(sel);
+  fcIdx=0; fcGot=0; fcAgain=0; fcFlipped=false; missedCards=[];
+  document.getElementById('fc-done').style.display='none';
+  document.getElementById('fc-acts').style.display='none';
+  document.getElementById('fcWrap').style.display='block';
+  if(fcDeck.length===0){document.getElementById('fc-q').textContent='No cards in this deck yet. Add some!';document.getElementById('fc-cat').textContent='Empty';return;}
+  updateFCUI(); showFCCard();
+}
+
+function shuffleDeck(){for(let i=fcDeck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[fcDeck[i],fcDeck[j]]=[fcDeck[j],fcDeck[i]];}fcIdx=0;fcFlipped=false;showFCCard();}
+
+function updateFCUI(){
+  const total=fcDeck.length;
+  document.getElementById('fc-got').textContent=fcGot;
+  document.getElementById('fc-again').textContent=fcAgain;
+  document.getElementById('fc-rem').textContent=Math.max(0,total-fcIdx);
+  document.getElementById('fc-ctr').textContent='Card '+(Math.min(fcIdx+1,total))+' of '+total;
+  document.getElementById('fc-prog').style.width=(total>0?(fcIdx/total*100):0)+'%';
+  document.getElementById('deckInfo').textContent=fcDeck.length+' cards';
+}
+
+function showFCCard(){
+  const fc=document.getElementById('fc'); fc.classList.remove('flipped'); fcFlipped=false;
+  document.getElementById('fc-acts').style.display='none';
+  if(fcIdx>=fcDeck.length){showFCDone();return;}
+  const c=fcDeck[fcIdx];
+  document.getElementById('fc-cat').textContent=c.cat;
+  document.getElementById('fc-q').textContent=c.q;
+  document.getElementById('fc-a').innerHTML=c.a;
+  updateFCUI();
+}
+
+function flipCard(){
+  if(fcIdx>=fcDeck.length)return;
+  const fc=document.getElementById('fc'); fc.classList.toggle('flipped'); fcFlipped=!fcFlipped;
+  document.getElementById('fc-acts').style.display=fcFlipped?'flex':'none';
+}
+
+function rateCard(r){
+  if(r==='got')fcGot++;
+  else if(r==='again'){fcAgain++;missedCards.push(fcDeck[fcIdx]);}
+  fcIdx++; fcFlipped=false; document.getElementById('fc-acts').style.display='none';
+  if(fcIdx>=fcDeck.length)showFCDone();else showFCCard();
+}
+
+function showFCDone(){
+  document.getElementById('fcWrap').style.display='none';
+  document.getElementById('fc-acts').style.display='none';
+  document.getElementById('fc-done').style.display='block';
+  document.getElementById('fc-done-stats').textContent='Got it: '+fcGot+' · Again: '+fcAgain+' · Total: '+fcDeck.length;
+}
+
+function reviewMissed(){if(!missedCards.length)return;fcDeck=[...missedCards];fcIdx=0;fcGot=0;fcAgain=0;fcFlipped=false;missedCards=[];document.getElementById('fc-done').style.display='none';document.getElementById('fcWrap').style.display='block';updateFCUI();showFCCard();}
+
+function addCustomCard(){
+  const cat=document.getElementById('fc-new-cat').value;
+  const q=document.getElementById('fc-new-q').value.trim();
+  const a=document.getElementById('fc-new-a').value.trim();
+  if(!q||!a){alert('Please fill in both question and answer.');return;}
+  customCards.push({cat,q,a,deck:'custom',builtin:false});
+  document.getElementById('fc-new-q').value='';document.getElementById('fc-new-a').value='';
+  const msg=document.getElementById('fc-add-msg');msg.style.display='inline';setTimeout(()=>msg.style.display='none',2000);
+}
+
+// ════════════════════════════════════════════════════════
+// BUILT-IN MCQ DATA
+// ════════════════════════════════════════════════════════
+const builtinMCQ=[
+  {topic:'tollens',q:"Which of the following gives a positive Tollens' test?",opts:["Acetone","Benzaldehyde","Sucrose","Diethyl ether"],ans:1,exp:"Benzaldehyde (PhCHO) is an aromatic aldehyde — all aldehydes give +ve Tollens' silver mirror. Acetone (ketone), sucrose (non-reducing sugar), and ethers fail.",builtin:true},
+  {topic:'tollens',q:"Tollens' reagent gives a white precipitate (not a silver mirror) with:",opts:["Formaldehyde","Glucose","Terminal alkynes (RC≡CH)","Acetaldehyde"],ans:2,exp:"RC≡CH reacts with AgNO₃/NH₄OH to form silver acetylide (RC≡CAg), a white precipitate. This tests terminal C–H acidity — NOT reducing ability. All the others give the classic silver mirror.",builtin:true},
+  {topic:'tollens',q:"Which carboxylic acid gives a positive Tollens' test?",opts:["Acetic acid (CH₃COOH)","Oxalic acid","Formic acid (HCOOH)","Benzoic acid"],ans:2,exp:"Formic acid HCOOH has the structure H–C(=O)–OH — the H–C=O part is essentially an aldehyde group. It reduces Ag⁺ to Ag⁰. No other common carboxylic acid does this.",builtin:true},
+  {topic:'fehling',q:"Which compound gives +ve Tollens' but –ve Fehling's test?",opts:["Glucose","Acetaldehyde","Benzaldehyde (PhCHO)","Formic acid"],ans:2,exp:"PhCHO gives +ve Tollens' (it is an aldehyde) but –ve Fehling's (aromatic aldehydes cannot reduce the Cu²⁺ tartrate complex). This is the key JEE distinction between the two tests.",builtin:true},
+  {topic:'fehling',q:"Fehling's test must be done with heating. What is the positive result?",opts:["Silver mirror on glass","White precipitate of AgCl","Brick-red Cu₂O precipitate","Blue colour intensifies"],ans:2,exp:"Fehling's test requires heating. Cu²⁺ is reduced to Cu⁺, forming Cu₂O which is brick-red/orange-red precipitate. The deep blue colour of the solution fades as Cu²⁺ is consumed.",builtin:true},
+  {topic:'fehling',q:"Why does sucrose give negative Fehling's test?",opts:["It has no carbon atoms","It is a non-reducing sugar — glycosidic bond locks both anomeric carbons","It is too large a molecule","It is insoluble in water"],ans:1,exp:"In sucrose, the glycosidic bond joins C-1 of glucose to C-2 of fructose, locking BOTH anomeric carbons. No free –CHO or reactive keto group is available to reduce Cu²⁺.",builtin:true},
+  {topic:'iodoform',q:"Which of the following gives a positive iodoform test?",opts:["Formaldehyde (HCHO)","n-Propanol (CH₃CH₂CH₂OH)","Acetophenone (PhCOCH₃)","Benzaldehyde (PhCHO)"],ans:2,exp:"Acetophenone has a CH₃CO– group (methyl ketone) → positive iodoform. HCHO has no CH₃CO–. n-Propanol oxidizes to propanal (not CH₃CHO). PhCHO has no CH₃CO–.",builtin:true},
+  {topic:'iodoform',q:"Which is the ONLY aldehyde that gives a positive iodoform test?",opts:["Formaldehyde","Acetaldehyde (CH₃CHO)","Benzaldehyde","Propanal"],ans:1,exp:"Acetaldehyde (CH₃CHO) is the only aldehyde with a CH₃CO– structural unit, making it the sole aldehyde giving positive iodoform. All other aldehydes lack this group.",builtin:true},
+  {topic:'iodoform',q:"Ethanol gives iodoform. Methanol does NOT. The correct reason is:",opts:["Ethanol is more acidic than methanol","NaOH/I₂ oxidizes ethanol to CH₃CHO (then iodoform) but methanol only to HCHO","Methanol is immiscible with NaOH","Ethanol has a longer carbon chain"],ans:1,exp:"The mechanism: EtOH is oxidized by NaOH/I₂ → CH₃CHO → then undergoes iodoform (CH₃CO– group). MeOH → HCHO only. HCHO lacks CH₃CO– → cannot give iodoform.",builtin:true},
+  {topic:'victor',q:"In the Victor Meyer test, secondary alcohol gives:",opts:["Blood-red colour in KOH","Blue/blue-green colour (pseudonitrole)","Colourless (no reaction)","Yellow precipitate"],ans:1,exp:"Secondary alcohol → secondary nitroalkane → + HNO₂ → pseudonitrole R₂C(NO)(NO₂). The nitroso (–N=O) group is the chromophore giving blue colour.",builtin:true},
+  {topic:'victor',q:"What product is responsible for the blood-red colour in Victor Meyer test of primary alcohols?",opts:["Pseudonitrole","Nitroalkane","Nitrolic acid (potassium salt in KOH)","Nitrous acid"],ans:2,exp:"Primary nitroalkane + HNO₂ → nitrolic acid R–C(=NOH)–NO₂. In KOH, it forms the red potassium nitrolic acid salt. Acidify → colourless. 2° gives pseudonitrole (blue). 3° no reaction.",builtin:true},
+  {topic:'victor',q:"Tertiary alcohol gives colourless result in Victor Meyer test because:",opts:["It forms a very stable product","Tertiary nitroalkane has no α-H so HNO₂ cannot react","The alkyl iodide does not form","Tertiary alcohols react differently with AgNO₂"],ans:1,exp:"Tertiary nitroalkane R₃C–NO₂ has NO α-hydrogen. HNO₂ reacts by abstracting α-H to form an isomer — without α-H, no tautomerization is possible → no coloured product → colourless.",builtin:true},
+  {topic:'exceptions',q:"Fructose gives positive Tollens' and Fehling's despite being a ketone. The correct reason is:",opts:["Fructose contains a free –CHO group at C-1","In alkaline medium, fructose tautomerizes via enediol to partially form glucose","Ketones always reduce Ag⁺","Fructose is a monosaccharide"],ans:1,exp:"Lobry de Bruyn–van Ekenstein transformation: in alkaline (Tollens'/Fehling's) medium, fructose ⇌ enediol ⇌ glucose (aldohexose). The glucose formed reduces Ag⁺ and Cu²⁺. Sucrose does NOT do this — locked by acetal bond.",builtin:true},
+  {topic:'exceptions',q:"Which compound gives POSITIVE results for ALL THREE tests: Tollens', Fehling's, AND iodoform?",opts:["Glucose","Acetone","Acetaldehyde (CH₃CHO)","Formaldehyde (HCHO)"],ans:2,exp:"CH₃CHO: +ve Tollens' (it's an aldehyde → silver mirror), +ve Fehling's (aliphatic aldehyde → Cu₂O), +ve iodoform (has CH₃CO– → CHI₃). It is the ONLY compound with this combination.",builtin:true},
+  {topic:'exceptions',q:"Which statement about the iodoform test is INCORRECT?",opts:["CH₃CHO gives positive iodoform","Acetone gives positive iodoform","Methanol gives positive iodoform","Acetophenone gives positive iodoform"],ans:2,exp:"Methanol gives NEGATIVE iodoform. NaOH/I₂ oxidizes methanol → formaldehyde (HCHO), which lacks the CH₃CO– requirement. All others listed (CH₃CHO, acetone, PhCOCH₃) are genuine positives.",builtin:true},
+  {topic:'exceptions',q:"How would you distinguish HCOOH from CH₃COOH using ONE test?",opts:["Litmus test","Tollens' test — HCOOH gives silver mirror; CH₃COOH does not","Iodoform test","pH measurement"],ans:1,exp:"Tollens' test: HCOOH has a masked –CHO group (H–C(=O)–OH) → reduces [Ag(NH₃)₂]⁺ → silver mirror (+ve). CH₃COOH has no –CHO group → no reaction (–ve).",builtin:true},
+
+  {topic:'cannizzaro',q:"Cannizzaro reaction does NOT occur with which compound?",opts:["Formaldehyde (HCHO)","Benzaldehyde (PhCHO)","Acetaldehyde (CH₃CHO)","Pivaldehyde ((CH₃)₃CCHO)"],ans:2,exp:"Acetaldehyde has α-H on the CH₃ group → undergoes ALDOL condensation with NaOH, NOT Cannizzaro. HCHO, PhCHO, pivaldehyde have no α-H → Cannizzaro.",builtin:true},
+  {topic:'cannizzaro',q:"HCHO + PhCHO + conc. NaOH → the products are:",opts:["PhCH₂OH + HCOONa","PhCOONa + CH₃OH","PhCH₂OH + PhCOONa","HCOOH + PhCH₂OH"],ans:0,exp:"Cross-Cannizzaro: HCHO is ALWAYS oxidized (→ HCOONa, sodium formate) and PhCHO is reduced (→ PhCH₂OH, benzyl alcohol). HCHO is always the better H⁻ donor.",builtin:true},
+  {topic:'cannizzaro',q:"The rate law for Cannizzaro reaction is:",opts:["k[RCHO][OH⁻]","k[RCHO]²[OH⁻]","k[RCHO][OH⁻]²","k[RCHO]²[OH⁻]²"],ans:1,exp:"Rate = k[RCHO]²[OH⁻]. Two aldehyde molecules involved in the H⁻ transfer step (RDS). First order in OH⁻.",builtin:true},
+  {topic:'cannizzaro',q:"Glyoxal (OHC–CHO) + NaOH gives:",opts:["Glycol (HOCH₂–CH₂OH)","Sodium glycolate (HOCH₂COO⁻)","Glyoxylic acid (OHC–COOH)","Two equivalents of HCOOH"],ans:1,exp:"Intramolecular Cannizzaro: one –CHO is oxidized → –COO⁻, the other reduced → –CH₂OH, within the same molecule. Product = sodium glycolate (HOCH₂–COONa).",builtin:true},
+  {topic:'reimertiemann',q:"The reactive electrophile in Reimer-Tiemann reaction is:",opts:["CHCl₃","NaOH",":CCl₂ (dichlorocarbene)","Cl₂"],ans:2,exp:":CCl₂ (dichlorocarbene) — generated in situ: CHCl₃ + NaOH → CCl₃⁻ → :CCl₂ + Cl⁻. It is the electrophile that attacks the activated phenoxide ring, NOT CHCl₃ itself.",builtin:true},
+  {topic:'reimertiemann',q:"Reimer-Tiemann reaction on phenol gives which major product?",opts:["Benzoic acid","Chlorobenzene","Salicylaldehyde (2-hydroxybenzaldehyde)","4-Hydroxybenzaldehyde"],ans:2,exp:"Salicylaldehyde (ortho-OH-benzaldehyde) is the MAJOR product. Ortho attack by :CCl₂ is favoured due to proximity/guidance by the phenoxide oxygen. Para is minor product.",builtin:true},
+  {topic:'reimertiemann',q:"Abnormal Reimer-Tiemann (both ortho positions blocked) gives:",opts:["Para-hydroxybenzaldehyde","Salicylic acid","A 2,2-dichlorocyclohexadienone (no –CHO formed)","Phenol chloride"],ans:2,exp:"When ortho positions are blocked, :CCl₂ attacks the ipso carbon (C-1, bearing O⁻) → rearranges to 2,2-dichlorocyclohexadienone. No aldehyde (–CHO) is introduced. Completely different from normal R-T.",builtin:true},
+  {topic:'pinacol',q:"Correct migratory aptitude order in pinacol rearrangement:",opts:["H > Aryl > Methyl","Aryl > Vinyl > tert-Alkyl > sec-Alkyl > H > Methyl","Methyl > H > tert-Alkyl > Aryl","tert-Alkyl > Aryl > H > Methyl"],ans:1,exp:"Aryl > Vinyl > tert-Alkyl > sec-Alkyl > H > Methyl > n-Alkyl. Aryl migrates best (stabilizes partial + charge in TS). Mnemonic: All Very Tired Students Have Massive Notes.",builtin:true},
+  {topic:'pinacol',q:"Why are there NO crossover products in pinacol rearrangement?",opts:["Carbocation is too stable","Migration is strictly intramolecular — group never leaves molecule","Free radical mechanism prevents crossover","Reaction is too fast"],ans:1,exp:"Crossover experiments with labeled diols show zero exchange. The 1,2-shift is concerted with ionization — the migrating group goes directly to the adjacent cation within the same molecule. Proves intramolecular intimate ion-pair mechanism.",builtin:true},
+  {topic:'pinacol',q:"Semi-pinacol rearrangement is primarily useful for:",opts:["Synthesis of 1,2-diols","Ring expansion or contraction","Converting alcohols to ethers","Making vicinal dihalides"],ans:1,exp:"Semi-pinacol (one –OH + adjacent leaving group) enables 1,2-migration → ketone/aldehyde with ring size change. E.g. cyclopentane system → cyclohexanone (ring expansion). Classic tool in synthesis.",builtin:true},
+];
+
+let customMCQ=[];
+let mcqQs=[],mcqCur=0,mcqCorr=0,mcqWrng=0,mcqAns=[];
+
+function getAllMCQ(filter){
+  const all=[...builtinMCQ,...customMCQ];
+  if(filter==='all') return all;
+  if(filter==='custom') return customMCQ;
+  return all.filter(q=>q.topic===filter);
+}
+
+function startMCQ(){
+  const topic=document.getElementById('mcq-topic').value;
+  let pool=getAllMCQ(topic);
+  for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}
+  const n=document.getElementById('mcq-num').value;
+  mcqQs=n==='all'?pool:pool.slice(0,parseInt(n));
+  if(!mcqQs.length){alert('No questions in this topic yet!');return;}
+  mcqCur=0;mcqCorr=0;mcqWrng=0;mcqAns=new Array(mcqQs.length).fill(null);
+  document.getElementById('mcq-setup').style.display='none';
+  document.getElementById('mcq-main').style.display='block';
+  document.getElementById('mcq-results').classList.remove('show');
+  renderMCQ();
+}
+
+function renderMCQ(){
+  const q=mcqQs[mcqCur],total=mcqQs.length;
+  document.getElementById('mcq-qtext').textContent='Q'+(mcqCur+1)+'. '+q.q;
+  document.getElementById('mcq-plbl').textContent='Q '+(mcqCur+1)+' of '+total;
+  document.getElementById('mcq-prog').style.width=(mcqCur/total*100)+'%';
+  document.getElementById('mcq-corr').textContent=mcqCorr;
+  document.getElementById('mcq-wrng').textContent=mcqWrng;
+  const optsEl=document.getElementById('mcq-opts'); optsEl.innerHTML='';
+  const ltrs=['A','B','C','D'];
+  q.opts.forEach((opt,i)=>{
+    const btn=document.createElement('button');
+    btn.className='mcq-opt';
+    btn.innerHTML='<span class="oltr">'+ltrs[i]+'</span>'+opt;
+    btn.onclick=()=>selectMCQ(i);
+    optsEl.appendChild(btn);
+  });
+  const exp=document.getElementById('mcq-exp');exp.classList.remove('show','wrong-exp');exp.textContent='';
+  const saved=mcqAns[mcqCur];
+  if(saved!==null){
+    const opts=optsEl.querySelectorAll('.mcq-opt');
+    opts[q.ans].classList.add('correct');
+    if(saved!==q.ans)opts[saved].classList.add('wrong');
+    opts.forEach(o=>o.disabled=true);
+    exp.textContent=q.exp; exp.classList.add('show');
+    if(saved!==q.ans)exp.classList.add('wrong-exp');
+  }
+  document.getElementById('mcq-prev').style.display=mcqCur>0?'inline-block':'none';
+  document.getElementById('mcq-next').style.display=(saved!==null&&mcqCur<total-1)?'inline-block':'none';
+  document.getElementById('mcq-finish').style.display=(saved!==null&&mcqCur===total-1)?'inline-block':'none';
+}
+
+function selectMCQ(chosen){
+  if(mcqAns[mcqCur]!==null)return;
+  const q=mcqQs[mcqCur]; mcqAns[mcqCur]=chosen;
+  const opts=document.getElementById('mcq-opts').querySelectorAll('.mcq-opt');
+  opts[q.ans].classList.add('correct');
+  if(chosen===q.ans)mcqCorr++; else{opts[chosen].classList.add('wrong');mcqWrng++;}
+  opts.forEach(o=>o.disabled=true);
+  document.getElementById('mcq-corr').textContent=mcqCorr;
+  document.getElementById('mcq-wrng').textContent=mcqWrng;
+  const exp=document.getElementById('mcq-exp');exp.textContent=q.exp;exp.classList.add('show');
+  if(chosen!==q.ans)exp.classList.add('wrong-exp');
+  const total=mcqQs.length;
+  if(mcqCur<total-1)document.getElementById('mcq-next').style.display='inline-block';
+  else document.getElementById('mcq-finish').style.display='inline-block';
+}
+function nextMCQ(){mcqCur++;renderMCQ();}
+function prevMCQ(){mcqCur--;renderMCQ();}
+function finishMCQ(){
+  const t=mcqQs.length,p=Math.round(mcqCorr/t*100);
+  document.getElementById('mcq-main').style.display='none';
+  const r=document.getElementById('mcq-results');r.classList.add('show');
+  document.getElementById('res-pct').textContent=p+'%';
+  document.getElementById('res-pct').style.color=p>=70?'var(--green)':p>=40?'var(--amber)':'var(--red)';
+  document.getElementById('rb-c').textContent=mcqCorr;document.getElementById('rb-w').textContent=mcqWrng;document.getElementById('rb-t').textContent=t;
+  const msgs=['Review your notes carefully!','Getting there — focus on exceptions!','Good work! Keep practicing.','Great score! Almost JEE-ready.','Excellent! 🎉'];
+  document.getElementById('res-msg').textContent=msgs[Math.min(4,Math.floor(p/20))];
+}
+function retakeMCQ(){document.getElementById('mcq-results').classList.remove('show');document.getElementById('mcq-setup').style.display='block';document.getElementById('mcq-main').style.display='none';}
+
+function addMCQ(){
+  const q=document.getElementById('mcq-new-q').value.trim();
+  const opts=['opt-0','opt-1','opt-2','opt-3'].map(id=>document.getElementById(id).value.trim());
+  const radio=document.querySelector('input[name="correct-opt"]:checked');
+  const exp=document.getElementById('mcq-new-exp').value.trim();
+  const topic=document.getElementById('mcq-new-topic').value;
+  if(!q||opts.some(o=>!o)||!radio){alert('Fill all fields and select correct answer.');return;}
+  customMCQ.push({topic,q,opts,ans:parseInt(radio.value),exp:exp||'No explanation provided.',builtin:false});
+  ['mcq-new-q','mcq-new-exp'].forEach(id=>document.getElementById(id).value='');
+  ['opt-0','opt-1','opt-2','opt-3'].forEach(id=>document.getElementById(id).value='');
+  if(radio)radio.checked=false;
+  const msg=document.getElementById('mcq-add-msg');msg.style.display='inline';setTimeout(()=>msg.style.display='none',2000);
+  renderMCQList(); updateCounts();
+}
+
+function renderMCQList(){
+  const all=[...builtinMCQ,...customMCQ];
+  const el=document.getElementById('mcq-list');
+  document.getElementById('mcq-list-count').textContent=all.length;
+  if(!all.length){el.innerHTML='<div class="empty-state">No questions yet.</div>';return;}
+  el.innerHTML=all.map((q,i)=>`<div class="item-row"><div class="item-row-content"><div class="item-row-q">${q.q}</div><div class="item-row-meta">${q.topic} &nbsp;·&nbsp; ${q.opts.length} options &nbsp;·&nbsp; Correct: ${['A','B','C','D'][q.ans]}</div></div><div class="item-row-actions"><span class="${q.builtin?'built-in-badge':'custom-badge'}">${q.builtin?'built-in':'custom'}</span>${q.builtin?'':`<button class="del-btn" onclick="delMCQ(${i})">Delete</button>`}</div></div>`).join('');
+}
+
+function delMCQ(idx){
+  const all=[...builtinMCQ,...customMCQ];
+  const item=all[idx]; if(!item||item.builtin)return;
+  const ci=customMCQ.indexOf(item); if(ci>-1)customMCQ.splice(ci,1);
+  renderMCQList(); updateCounts();
+}
+
+// ════════════════════════════════════════════════════════
+// NUMERICAL DATA & LOGIC
+// ════════════════════════════════════════════════════════
+const builtinNum=[
+  {topic:'iodoform',q:"How many of the following compounds give a positive iodoform test?\n\nAcetone (CH₃COCH₃) · Formaldehyde (HCHO) · Isopropanol ((CH₃)₂CHOH) · Acetophenone (PhCOCH₃) · Methanol (CH₃OH) · 2-Butanol (CH₃CH(OH)C₂H₅)",ans:4,hint:"Count only compounds with CH₃CO– group OR CH₃CH(OH)– group.",exp:"Positives: Acetone ✓ (CH₃CO–), Isopropanol ✓ (→ acetone), Acetophenone ✓ (CH₃CO–), 2-Butanol ✓ (CH₃CH(OH)– → MEK which has CH₃CO–). Negatives: HCHO ✗ (no CH₃CO–), Methanol ✗ (→ HCHO). Answer = 4.",builtin:true},
+  {topic:'tollens',q:"How many of the following give a positive Tollens' test?\n\nCH₃CHO · CH₃COCH₃ · HCOOH · PhCHO · Sucrose · Glucose · Terminal alkyne (RC≡CH)",ans:4,hint:"All aldehydes pass. Also HCOOH passes. Ketones and sucrose fail. Terminal alkyne gives white ppt not mirror.",exp:"Pass: CH₃CHO ✓, HCOOH ✓, PhCHO ✓, Glucose ✓ = 4. Fail: CH₃COCH₃ ✗ (ketone), Sucrose ✗ (non-reducing), Terminal alkyne gives white precipitate (not mirror, so doesn't count as +ve Tollens' mirror test). Answer = 4.",builtin:true},
+  {topic:'fehling',q:"How many of the following give a NEGATIVE Fehling's test?\n\nBenzaldehyde · Acetaldehyde · Fructose · Sucrose · Acetone · Lactose",ans:3,hint:"Aromatic aldehydes, ketones (except alpha-hydroxy), and non-reducing sugars fail Fehling's.",exp:"Negative: Benzaldehyde ✗ (aromatic), Sucrose ✗ (non-reducing), Acetone ✗ (ketone) = 3. Positive: Acetaldehyde ✓ (aliphatic), Fructose ✓ (tautomerism), Lactose ✓ (reducing disaccharide). Answer = 3.",builtin:true},
+  {topic:'iodoform',q:"How many of the following give a positive iodoform test?\n\nEthanol · Methanol · 1-Propanol · Acetaldehyde · Propanal · Acetophenone · Diethyl ketone (C₂H₅COC₂H₅)",ans:3,hint:"Need CH₃CO– or CH₃CH(OH)– structure. Check each carefully.",exp:"Positive: Ethanol ✓ (→ CH₃CHO → CHI₃), Acetaldehyde ✓ (CH₃CO–), Acetophenone ✓ (CH₃CO–) = 3. Negative: Methanol ✗ (→ HCHO), 1-Propanol ✗ (→ propanal, no CH₃CO–), Propanal ✗ (no CH₃CO–), Diethyl ketone ✗ (no CH₃CO–, has C₂H₅CO–). Answer = 3.",builtin:true},
+  {topic:'tollens',q:"In the Victor Meyer test, the number of steps involved from alcohol to final colour observation is:",ans:4,hint:"Count: alcohol → alkyl iodide → nitroalkane → react with HNO₂ → add base.",exp:"4 steps: (1) R–OH + P/I₂ → R–I, (2) R–I + AgNO₂ → R–NO₂, (3) R–NO₂ + HNO₂ → intermediate, (4) Add KOH → observe colour. Answer = 4.",builtin:true},
+];
+
+let customNum=[];
+let numQs=[],numCur=0,numCorr=0,numWrng=0,numAns=[],numHints=[];
+
+function getAllNum(filter){
+  const all=[...builtinNum,...customNum];
+  if(filter==='all') return all;
+  if(filter==='custom') return customNum;
+  return all.filter(q=>q.topic===filter);
+}
+
+function startNum(){
+  const topic=document.getElementById('num-topic').value;
+  let pool=getAllNum(topic);
+  for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}
+  numQs=pool;
+  if(!numQs.length){alert('No questions in this topic yet!');return;}
+  numCur=0;numCorr=0;numWrng=0;numAns=new Array(numQs.length).fill(null);numHints=new Array(numQs.length).fill(false);
+  document.getElementById('num-setup').style.display='none';
+  document.getElementById('num-main').style.display='block';
+  document.getElementById('num-results').classList.remove('show');
+  renderNum();
+}
+
+function renderNum(){
+  const q=numQs[numCur],total=numQs.length;
+  document.getElementById('num-qtext').textContent=q.q;
+  document.getElementById('num-plbl').textContent='Q '+(numCur+1)+' of '+total;
+  document.getElementById('num-prog').style.width=(numCur/total*100)+'%';
+  document.getElementById('num-corr').textContent=numCorr;
+  document.getElementById('num-wrng').textContent=numWrng;
+  const inp=document.getElementById('num-ans-input');
+  inp.value=''; inp.className='num-input'; inp.disabled=false;
+  const res=document.getElementById('num-result'); res.classList.remove('show','correct','wrong'); res.textContent='';
+  const hbox=document.getElementById('num-hint-box'); hbox.style.display='none';
+  document.getElementById('num-hint-btn').style.display='inline-block';
+  const saved=numAns[numCur];
+  if(saved!==null){
+    inp.value=saved; inp.disabled=true;
+    const correct=parseFloat(saved)===parseFloat(q.ans);
+    inp.classList.add(correct?'correct-input':'wrong-input');
+    res.textContent=(correct?'✓ Correct! ':'✗ Wrong. Correct answer: '+q.ans+'. ')+q.exp;
+    res.classList.add('show',correct?'correct':'wrong');
+    if(numHints[numCur]){hbox.style.display='block';hbox.textContent='Hint: '+q.hint;}
+  }
+  document.getElementById('num-prev').style.display=numCur>0?'inline-block':'none';
+  document.getElementById('num-next').style.display=(saved!==null&&numCur<total-1)?'inline-block':'none';
+  document.getElementById('num-finish').style.display=(saved!==null&&numCur===total-1)?'inline-block':'none';
+}
+
+function submitNum(){
+  if(numAns[numCur]!==null)return;
+  const inp=document.getElementById('num-ans-input');
+  const val=inp.value.trim();
+  if(val===''){alert('Please enter an answer.');return;}
+  const q=numQs[numCur]; numAns[numCur]=val;
+  const correct=parseFloat(val)===parseFloat(q.ans);
+  if(correct)numCorr++; else numWrng++;
+  inp.disabled=true; inp.classList.add(correct?'correct-input':'wrong-input');
+  const res=document.getElementById('num-result');
+  res.textContent=(correct?'✓ Correct! ':'✗ Wrong. Correct answer: '+q.ans+'. ')+q.exp;
+  res.classList.add('show',correct?'correct':'wrong');
+  document.getElementById('num-corr').textContent=numCorr;
+  document.getElementById('num-wrng').textContent=numWrng;
+  const total=numQs.length;
+  if(numCur<total-1)document.getElementById('num-next').style.display='inline-block';
+  else document.getElementById('num-finish').style.display='inline-block';
+}
+
+function showNumHint(){
+  const q=numQs[numCur]; numHints[numCur]=true;
+  const hbox=document.getElementById('num-hint-box');
+  hbox.style.display='block'; hbox.textContent='Hint: '+(q.hint||'No hint available.');
+  document.getElementById('num-hint-btn').style.display='none';
+}
+function nextNum(){numCur++;renderNum();}
+function prevNum(){numCur--;renderNum();}
+function finishNum(){
+  const t=numQs.length,p=Math.round(numCorr/t*100);
+  document.getElementById('num-main').style.display='none';
+  const r=document.getElementById('num-results');r.classList.add('show');
+  document.getElementById('num-res-pct').textContent=p+'%';
+  document.getElementById('num-res-pct').style.color=p>=70?'var(--green)':p>=40?'var(--amber)':'var(--red)';
+  document.getElementById('nrb-c').textContent=numCorr;document.getElementById('nrb-w').textContent=numWrng;document.getElementById('nrb-t').textContent=t;
+  const msgs=['Keep reviewing!','Getting there!','Good work!','Great score!','Perfect! 🎉'];
+  document.getElementById('num-res-msg').textContent=msgs[Math.min(4,Math.floor(p/20))];
+}
+function retakeNum(){document.getElementById('num-results').classList.remove('show');document.getElementById('num-setup').style.display='block';document.getElementById('num-main').style.display='none';}
+
+function addNum(){
+  const q=document.getElementById('num-new-q').value.trim();
+  const ans=document.getElementById('num-new-ans').value.trim();
+  const hint=document.getElementById('num-new-hint').value.trim();
+  const exp=document.getElementById('num-new-exp').value.trim();
+  const topic=document.getElementById('num-new-topic').value;
+  if(!q||ans===''){alert('Please fill in question and answer.');return;}
+  customNum.push({topic,q,ans:parseFloat(ans),hint:hint||'No hint.',exp:exp||'Answer: '+ans,builtin:false});
+  ['num-new-q','num-new-hint','num-new-exp'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('num-new-ans').value='';
+  const msg=document.getElementById('num-add-msg');msg.style.display='inline';setTimeout(()=>msg.style.display='none',2000);
+  renderNumList(); updateCounts();
+}
+
+function renderNumList(){
+  const all=[...builtinNum,...customNum];
+  const el=document.getElementById('num-list');
+  document.getElementById('num-list-count').textContent=all.length;
+  if(!all.length){el.innerHTML='<div class="empty-state">No questions yet.</div>';return;}
+  el.innerHTML=all.map((q,i)=>`<div class="item-row"><div class="item-row-content"><div class="item-row-q">${q.q.split('\n')[0]}</div><div class="item-row-meta">${q.topic} &nbsp;·&nbsp; Answer: ${q.ans}</div></div><div class="item-row-actions"><span class="${q.builtin?'built-in-badge':'custom-badge'}">${q.builtin?'built-in':'custom'}</span>${q.builtin?'':`<button class="del-btn" onclick="delNum(${i})">Delete</button>`}</div></div>`).join('');
+}
+
+function delNum(idx){
+  const all=[...builtinNum,...customNum];
+  const item=all[idx]; if(!item||item.builtin)return;
+  const ci=customNum.indexOf(item); if(ci>-1)customNum.splice(ci,1);
+  renderNumList(); updateCounts();
+}
+
+function updateCounts(){
+  document.getElementById('mcq-count-badge').textContent=[...builtinMCQ,...customMCQ].length;
+  document.getElementById('num-count-badge').textContent=[...builtinNum,...customNum].length;
+}
+
+// init
+loadDeck();
+updateCounts();
+</script>
+<script>
+(function init(){
+  ['matrix','flashcards','mcq','numerical','manage'].forEach(function(t)
+    var el=document.getElementById('tab-'+t);
+    if(el) el.style.cssText='display:none !important;visibility:hidden;height:0;overflow:hidden;padding:0';
+  });
+  var notes=document.getElementById('tab-notes');
+  if(notes) notes.style.cssText='display:block !important;visibility:visible;height:auto;overflow:visible;padding:24px 20px';
+})();
+</script>
+<script>
+(function(){
+  var tabs=['matrix','flashcards','mcq','numerical','manage'];
+  tabs.forEach(function(t){
+    var el=document.getElementById('tab-'+t);
+    if(el) el.style.display='none';
+  });
+  var n=document.getElementById('tab-notes');
+  if(n) n.style.display='block';
+})();
+</script>
+</body>
+</html>
